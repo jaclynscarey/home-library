@@ -7,10 +7,22 @@
     <form action="/books" method="POST">
       <label>
         Title:
-        <input type="text" name="title" /> </label
+        <input type="text" name="title" required /> </label
       ><br />
       <label>
-        Author name(s) (separate by comma):
+        Select author(s) if they exist (select multiple by holding CTRL and
+        clicking):
+        <select name="existingAuthors" multiple>
+          <option value=""></option>
+          <% books.forEach(function (b) { b.author.forEach(function (a) { %>
+          <option value="<%= a._id %>">
+            <%= a.firstName %> <%= a.lastName %>
+          </option>
+          <% }) }) %>
+        </select> </label
+      ><br />
+      <label>
+        Input new author(s) (separate by commas):
         <input type="text" name="authorName" /> </label
       ><br />
       <label>
