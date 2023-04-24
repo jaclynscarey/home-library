@@ -43,7 +43,9 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    const foundBook = await bookModel.findById(req.params.id);
+    const foundBook = await bookModel
+      .findById(req.params.id)
+      .populate('author');
     res.render('books/show', { b: foundBook, title: 'Book Details' });
   } catch (err) {
     res.send(err);
