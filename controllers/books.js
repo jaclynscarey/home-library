@@ -6,14 +6,18 @@ async function index(req, res) {
     const books = await bookModel.find({}).populate('author');
     res.render('books/index', { books, title: 'Your Books' });
   } catch (error) {
-    res.render('error', {title: 'Something Went Wrong'});
+    res.render('error', { title: 'Something Went Wrong' });
   }
 }
 
 async function create(req, res) {
   const authorNames = req.body.authorName.trim().split(/\s*,\s*/);
   const authorObjects = [];
+
   for (let author of authorNames) {
+    if (author === '') {
+      continue;
+    }
     const authorDetail = {};
     const authorName = author.split(' ');
     authorDetail.firstName = authorName[0];
@@ -31,6 +35,19 @@ async function create(req, res) {
 
   try {
     const book = await bookModel.create(bookDetail);
+    console.log(req.body.existingAuthors);
+
+    if (req.body.existingAuthors.length !== 0) {
+      req.body.existingAuthors.forEach(async function (authorId) {
+        book.author.push(authorId);
+
+        const author = await authorModel.findById(authorId);
+        author.booksWritten.push(book._id);
+        await author.save();
+      });
+
+      await book.save();
+    }
 
     for (let authorDetail of authorObjects) {
       const author = await authorModel.create(authorDetail);
@@ -43,7 +60,7 @@ async function create(req, res) {
 
     res.redirect('/books');
   } catch (error) {
-    res.render('error', {title: 'Something Went Wrong'});
+    res.render('error', { title: 'Something Went Wrong' });
   }
 }
 
@@ -54,7 +71,7 @@ async function show(req, res) {
       .populate('author');
     res.render('books/show', { b: foundBook, title: 'Book Details' });
   } catch (error) {
-    res.render('error', {title: 'Something Went Wrong'});
+    res.render('error', { title: 'Something Went Wrong' });
   }
 }
 
