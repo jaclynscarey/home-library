@@ -14,7 +14,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-    const foundAuthor = await authorModel.findById(req.params.id);
+    const foundAuthor = await authorModel.findById(req.params.id).populate('booksWritten');
     const fullName = `${foundAuthor.firstName} ${foundAuthor.lastName}`;
 
     res.render('authors/show', {
