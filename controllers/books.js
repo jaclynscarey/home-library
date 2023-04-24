@@ -35,10 +35,14 @@ async function create(req, res) {
 
   try {
     const book = await bookModel.create(bookDetail);
-    console.log(req.body.existingAuthors);
 
-    if (req.body.existingAuthors.length !== 0) {
-      req.body.existingAuthors.forEach(async function (authorId) {
+    let existingAuthors = req.body.existingAuthors;
+    if (typeof existingAuthors === 'string' && existingAuthors !== '') {
+      existingAuthors = existingAuthors.split();
+    }
+
+    if (existingAuthors.length !== 0) {
+      existingAuthors.forEach(async function (authorId) {
         book.author.push(authorId);
 
         const author = await authorModel.findById(authorId);
