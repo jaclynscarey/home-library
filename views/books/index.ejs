@@ -31,17 +31,18 @@
   <section>
     <h2>Your Books</h2>
     <% books.forEach(function (b) { %>
-    <div>
+    <article>
+      <h3><%= b.title %></h3>
       <p>
         Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
         b.author.length - 1) { %> <%= a.firstName %> <%= a.lastName %> <% } else
         { %> <%= a.firstName %> <%= a.lastName %>, <% } }) %>
       </p>
-      <p><%= b.genre %></p>
-      <p><%= b.publishYear %></p>
-      <p><%= b.pageCount %></p>
+      <p>Genre: <%= b.genre %></p>
+      <p>Publication year: <%= b.publishYear %></p>
+      <p>Page count: <%= b.pageCount %></p>
       <a href="/books/<%= b._id %>">Details</a>
-    </div>
+    </article>
     <% }) %>
   </section>
 </main>
