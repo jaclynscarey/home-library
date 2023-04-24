@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
+const bookRoutes = require('./routes/books');
 
 require('dotenv').config();
 require('./config/database');
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 app.use('/', indexRoutes);
+app.use('/books', bookRoutes);
 
 const port = 3000;
 
