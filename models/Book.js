@@ -13,9 +13,9 @@ const bookSchema = new Schema({
   genre: String,
   publishYear: {
     type: Number,
-    max: function () {
-      return new Date().getFullYear();
-    },
+    // max: function () {
+    //   return new Date().getFullYear();
+    // },
   },
   pageCount: {
     type: Number,
