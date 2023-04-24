@@ -5,9 +5,8 @@ async function index(req, res) {
   try {
     const books = await bookModel.find({}).populate('author');
     res.render('books/index', { books, title: 'Your Books' });
-  } catch (err) {
-    // TODO: Render error page
-    res.send(err);
+  } catch (error) {
+    res.render('error', {title: 'Something Went Wrong'});
   }
 }
 
@@ -43,9 +42,8 @@ async function create(req, res) {
     }
 
     res.redirect('/books');
-  } catch (err) {
-    // TODO: Render error page
-    res.send(err);
+  } catch (error) {
+    res.render('error', {title: 'Something Went Wrong'});
   }
 }
 
@@ -55,8 +53,8 @@ async function show(req, res) {
       .findById(req.params.id)
       .populate('author');
     res.render('books/show', { b: foundBook, title: 'Book Details' });
-  } catch (err) {
-    res.send(err);
+  } catch (error) {
+    res.render('error', {title: 'Something Went Wrong'});
   }
 }
 

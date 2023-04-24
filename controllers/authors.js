@@ -6,15 +6,13 @@ async function index(req, res) {
     const authors = await authorModel.find({}).populate('booksWritten');
     res.render('authors/index', { title: 'Authors', authors });
   } catch (error) {
-    // TODO add error page
-    console.log(error);
-    // res.send(error);
+    res.render('error', {title: 'Something Went Wrong'});
   }
 }
 
 async function show(req, res) {
   try {
-    const foundAuthor = await authorModel.findById(req.params.id);
+    const foundAuthor = await authorModel.findById(req.params.id).populate('booksWritten');
     const fullName = `${foundAuthor.firstName} ${foundAuthor.lastName}`;
 
     res.render('authors/show', {
@@ -22,8 +20,7 @@ async function show(req, res) {
       title: fullName,
     });
   } catch (error) {
-    // TODO add error page
-    res.send(error);
+    res.render('error', {title: 'Something Went Wrong'});
   }
 }
 
