@@ -1,37 +1,48 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
+<!-- Change h1 later -->
 <main>
-  <form action="/books" method="POST">
-    <label>
-      Title:
-      <input type="text" name="title" /> </label
-    ><br />
-    <label>
-      Author first name:
-      <input type="text" name="firstName" /> </label
-    ><br />
-    <label>
-      Author last name:
-      <input type="text" name="lastName" /> </label
-    ><br />
-    <label>
-      Genre:
-      <input type="text" name="genre" /> </label
-    ><br />
-    <label>
-      Publish year:
-      <input type="number" name="publishYear" /> </label
-    ><br />
-    <label>
-      Page count:
-      <input type="number" name="pageCount" min="1" /> </label
-    ><br />
-    <button type="submit">Add book</button>
-  </form>
-  <% books.forEach(function (b) { %>
-  <p><%= b.author %></p>
-  <p><%= b.genre %></p>
-  <p><%= b.publishYear %></p>
-  <p><%= b.pageCount %></p>
-  <% }) %>
+  <section>
+    <!-- Hide section -->
+    <h2>Add a book</h2>
+    <form action="/books" method="POST">
+      <label>
+        Title:
+        <input type="text" name="title" /> </label
+      ><br />
+      <label>
+        Author first name:
+        <input type="text" name="firstName" /> </label
+      ><br />
+      <label>
+        Author last name:
+        <input type="text" name="lastName" /> </label
+      ><br />
+      <label>
+        Genre:
+        <input type="text" name="genre" /> </label
+      ><br />
+      <label>
+        Publish year:
+        <input type="number" name="publishYear" /> </label
+      ><br />
+      <label>
+        Page count:
+        <input type="number" name="pageCount" min="1" /> </label
+      ><br />
+      <button type="submit">Add book</button>
+    </form>
+  </section>
+  <section>
+    <h2>Your Books</h2>
+    <% books.forEach(function (b) { %>
+    <div>
+      <p><%= b.author %></p>
+      <p><%= b.genre %></p>
+      <p><%= b.publishYear %></p>
+      <p><%= b.pageCount %></p>
+      <a href="/books/<%= b._id %>">Details</a>
+    </div>
+    <% }) %>
+  </section>
 </main>
 <%- include('../partials/footer') %>

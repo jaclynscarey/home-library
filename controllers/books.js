@@ -41,4 +41,15 @@ async function create(req, res) {
   }
 }
 
-module.exports = { index, create };
+async function show(req, res) {
+  try {
+    const foundBook = await bookModel
+      .findById(req.params.id)
+      .populate('author');
+    res.render('books/show', { b: foundBook, title: 'Book Details' });
+  } catch (err) {
+    res.send(err);
+  }
+}
+
+module.exports = { index, create, show };

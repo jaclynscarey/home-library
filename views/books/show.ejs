@@ -1,0 +1,15 @@
+<%- include('../partials/head') %> <%- include('../partials/header') %>
+<main>
+  <section>
+    <h3><%= b.title %></h3>
+    <p>
+      Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
+      b.author.length - 1) { %> <%= a.firstName %> <%= a.lastName %> <% } else {
+      %> <%= a.firstName %> <%= a.lastName %>, <% } }) %>
+    </p>
+    <p>Genre: <%= b.genre %></p>
+    <p>Publication year: <%= b.publishYear %></p>
+    <p>Page count: <%= b.pageCount %></p>
+  </section>
+</main>
+<%- include('../partials/footer') %>
