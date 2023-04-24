@@ -6,9 +6,7 @@ async function index(req, res) {
     const authors = await authorModel.find({}).populate('booksWritten');
     res.render('authors/index', { title: 'Authors', authors });
   } catch (error) {
-    // TODO add error page
-    console.log(error);
-    // res.send(error);
+    res.render('error', {title: 'Something Went Wrong'});
   }
 }
 
@@ -22,8 +20,7 @@ async function show(req, res) {
       title: fullName,
     });
   } catch (error) {
-    // TODO add error page
-    res.send(error);
+    res.render('error', {title: 'Something Went Wrong'});
   }
 }
 
