@@ -44,7 +44,7 @@ async function create(req, res) {
 async function show(req, res) {
   try {
     const foundBook = await bookModel.findById(req.params.id);
-    res.render('/books/show', { b: foundBook, title: 'Book Details' });
+    res.render('books/show', { b: foundBook, title: 'Book Details' });
   } catch (err) {
     res.send(err);
   }
