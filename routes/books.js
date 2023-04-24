@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.get('/', booksController.index);
 
+router.post('/', booksController.create);
+
 module.exports = router;
