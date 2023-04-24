@@ -1,0 +1,20 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<main>
+
+    <table>
+        <thead>
+            <tr>
+                <th><span><%= author.firstName %></span> <span><%= author.lastName %></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= author.booksWritten %></td>
+            </tr>
+        </tbody>
+    </table>          
+   
+</main>
+
+<%- include('../partials/footer') %>
