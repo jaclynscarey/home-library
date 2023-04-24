@@ -10,7 +10,11 @@
         </thead>
         <tbody>
             <tr>
-                <td><%= author.booksWritten %></td>
+                <% author.booksWritten.forEach((b, i) => { %>
+                <td>
+                    <%= b.title %>
+                </td>
+                <% }) %>
             </tr>
         </tbody>
     </table>          
