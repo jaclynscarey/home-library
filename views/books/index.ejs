@@ -1,0 +1,9 @@
+<%- include('../partials/head') %> <%- include('../partials/header') %>
+<!-- add to header instead? -->
+<h1>Book Collection</h1>
+<% books.forEach(function (b) { %>
+<p><%= b.author %></p>
+<p><%= b.genre %></p>
+<p><%= b.publishYear %></p>
+<p><%= b.pageCount %></p>
+<% }) %> <%- include('../partials/footer') %>
