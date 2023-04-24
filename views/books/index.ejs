@@ -1,6 +1,7 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
-
 <main>
+  <!-- Style link to look like button -->
+  <a href="/books/new">Add Book</a>
   <% books.forEach(function (b) { %>
   <p><%= b.author %></p>
   <p><%= b.genre %></p>
