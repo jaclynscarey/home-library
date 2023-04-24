@@ -36,7 +36,11 @@
     <h2>Your Books</h2>
     <% books.forEach(function (b) { %>
     <div>
-      <p><%= b.author %></p>
+      <p>
+        Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
+        b.author.length - 1) { %> <%= a.firstName %> <%= a.lastName %> <% } else
+        { %> <%= a.firstName %> <%= a.lastName %>, <% } }) %>
+      </p>
       <p><%= b.genre %></p>
       <p><%= b.publishYear %></p>
       <p><%= b.pageCount %></p>
