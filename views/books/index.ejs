@@ -10,12 +10,8 @@
         <input type="text" name="title" /> </label
       ><br />
       <label>
-        Author first name:
-        <input type="text" name="firstName" /> </label
-      ><br />
-      <label>
-        Author last name:
-        <input type="text" name="lastName" /> </label
+        Author name(s) (separate by comma):
+        <input type="text" name="authorName" /> </label
       ><br />
       <label>
         Genre:
@@ -36,7 +32,11 @@
     <h2>Your Books</h2>
     <% books.forEach(function (b) { %>
     <div>
-      <p><%= b.author %></p>
+      <p>
+        Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
+        b.author.length - 1) { %> <%= a.firstName %> <%= a.lastName %> <% } else
+        { %> <%= a.firstName %> <%= a.lastName %>, <% } }) %>
+      </p>
       <p><%= b.genre %></p>
       <p><%= b.publishYear %></p>
       <p><%= b.pageCount %></p>

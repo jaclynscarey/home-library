@@ -3,7 +3,7 @@ const authorModel = require('../models/Author');
 
 async function index(req, res) {
   try {
-    const books = await bookModel.find({});
+    const books = await bookModel.find({}).populate('author');
     res.render('books/index', { books, title: 'Your Books' });
   } catch (err) {
     // TODO: Render error page
@@ -12,10 +12,16 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-  const authorDetail = {};
-  authorDetail.firstName = req.body.firstName;
-  authorDetail.lastName = req.body.lastName;
-  authorDetail.booksWritten = [];
+  const authorNames = req.body.authorName.trim().split(/\s*,\s*/);
+  const authorObjects = [];
+  for (let author of authorNames) {
+    const authorDetail = {};
+    const authorName = author.split(' ');
+    authorDetail.firstName = authorName[0];
+    authorDetail.lastName = authorName[1];
+    authorDetail.booksWritten = [];
+    authorObjects.push(authorDetail);
+  }
 
   const bookDetail = {};
   bookDetail.title = req.body.title;
@@ -25,14 +31,16 @@ async function create(req, res) {
   bookDetail.author = [];
 
   try {
-    const author = await authorModel.create(authorDetail);
     const book = await bookModel.create(bookDetail);
 
-    author.booksWritten.push(book._id);
-    await author.save();
+    for (let authorDetail of authorObjects) {
+      const author = await authorModel.create(authorDetail);
+      author.booksWritten.push(book._id);
+      await author.save();
 
-    book.author.push(author._id);
-    await book.save();
+      book.author.push(author._id);
+      await book.save();
+    }
 
     res.redirect('/books');
   } catch (err) {
