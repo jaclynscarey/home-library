@@ -22,8 +22,12 @@ async function create(req, res) {
     }
     const authorDetail = {};
     const authorName = author.split(' ');
-    authorDetail.firstName = authorName[0];
-    authorDetail.lastName = authorName[1];
+    if (authorDetail.firstName) {
+      authorDetail.firstName = authorName[0];
+    }
+    if (authorDetail.lastName) {
+      authorDetail.lastName = authorName[1];
+    }
     authorDetail.booksWritten = [];
     authorObjects.push(authorDetail);
   }
