@@ -8,14 +8,13 @@ const bookSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Author',
+      required: true,
     },
   ],
   genre: String,
   publishYear: {
     type: Number,
-    // max: function () {
-    //   return new Date().getFullYear();
-    // },
+    min: 500,
   },
   pageCount: {
     type: Number,
