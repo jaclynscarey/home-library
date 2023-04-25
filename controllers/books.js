@@ -26,7 +26,6 @@ async function create(req, res) {
     authorDetail.lastName = authorName[1];
     authorDetail.booksWritten = [];
     authorObjects.push(authorDetail);
-    console.log('author objects', authorObjects);
   }
 
   // existing authors
@@ -44,7 +43,6 @@ async function create(req, res) {
 
   try {
     const book = await bookModel.create(bookDetail);
-    console.log('reached one');
     if (existingAuthors) {
       existingAuthors.forEach(async function (authorId) {
         book.author.push(authorId);
@@ -56,9 +54,7 @@ async function create(req, res) {
 
       await book.save();
     }
-    console.log('reached 2');
     for (let authorInfo of authorObjects) {
-      console.log('authordetail', authorInfo);
       const author = await authorModel.create(authorInfo);
       author.booksWritten.push(book._id);
       await author.save();
