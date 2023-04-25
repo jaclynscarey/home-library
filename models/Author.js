@@ -6,6 +6,7 @@ const authorSchema = new Schema(
   {
     firstName: {
       type: String,
+      required: true,
     },
     middleName: {
       type: String,
