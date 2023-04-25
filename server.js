@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const session = require('express-session');
+const passport = require('passport');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const indexRoutes = require('./routes/index');
@@ -24,6 +25,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRoutes);
 app.use('/books', bookRoutes);
