@@ -12,6 +12,7 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
+  // new author names
   const authorNames = req.body.authorName.trim().split(/\s*,\s*/);
   const authorObjects = [];
 
@@ -25,6 +26,13 @@ async function create(req, res) {
     authorDetail.lastName = authorName[1];
     authorDetail.booksWritten = [];
     authorObjects.push(authorDetail);
+    console.log('author objects', authorObjects);
+  }
+
+  // existing authors
+  let existingAuthors = req.body.existingAuthors;
+  if (typeof existingAuthors === 'string' && existingAuthors !== '') {
+    existingAuthors = existingAuthors.split();
   }
 
   const bookDetail = {};
@@ -36,13 +44,8 @@ async function create(req, res) {
 
   try {
     const book = await bookModel.create(bookDetail);
-
-    let existingAuthors = req.body.existingAuthors;
-    if (typeof existingAuthors === 'string' && existingAuthors !== '') {
-      existingAuthors = existingAuthors.split();
-    }
-
-    if (existingAuthors.length !== 0) {
+    console.log('reached one');
+    if (existingAuthors) {
       existingAuthors.forEach(async function (authorId) {
         book.author.push(authorId);
 
@@ -53,9 +56,10 @@ async function create(req, res) {
 
       await book.save();
     }
-
-    for (let authorDetail of authorObjects) {
-      const author = await authorModel.create(authorDetail);
+    console.log('reached 2');
+    for (let authorInfo of authorObjects) {
+      console.log('authordetail', authorInfo);
+      const author = await authorModel.create(authorInfo);
       author.booksWritten.push(book._id);
       await author.save();
 
