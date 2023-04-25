@@ -7,10 +7,23 @@
     <form action="/books" method="POST">
       <label>
         Title:
-        <input type="text" name="title" /> </label
+        <input type="text" name="title" required /> </label
       ><br />
       <label>
-        Author name(s) (separate by comma):
+        Select author(s) if they exist (select multiple by holding CTRL and
+        clicking):
+        <!-- FIX BY REFERENCING AUTHOR LIST INSTEAD OF FROM BOOKS -->
+        <select name="existingAuthors" multiple>
+          <option value=""></option>
+          <% books.forEach(function (b) { b.author.forEach(function (a) { %>
+          <option value="<%= a._id %>">
+            <%= a.firstName %> <%= a.lastName %>
+          </option>
+          <% }) }) %>
+        </select> </label
+      ><br />
+      <label>
+        Input new author(s) (separate by commas):
         <input type="text" name="authorName" /> </label
       ><br />
       <label>
@@ -31,17 +44,18 @@
   <section>
     <h2>Your Books</h2>
     <% books.forEach(function (b) { %>
-    <div>
+    <article>
+      <h3><%= b.title %></h3>
       <p>
         Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
         b.author.length - 1) { %> <%= a.firstName %> <%= a.lastName %> <% } else
         { %> <%= a.firstName %> <%= a.lastName %>, <% } }) %>
       </p>
-      <p><%= b.genre %></p>
-      <p><%= b.publishYear %></p>
-      <p><%= b.pageCount %></p>
+      <p>Genre: <%= b.genre %></p>
+      <p>Publication year: <%= b.publishYear %></p>
+      <p>Page count: <%= b.pageCount %></p>
       <a href="/books/<%= b._id %>">Details</a>
-    </div>
+    </article>
     <% }) %>
   </section>
 </main>
