@@ -89,4 +89,28 @@ async function show(req, res) {
   }
 }
 
-module.exports = { index, create, show };
+async function deleteBook(req, res) {
+  try {
+    const book = await bookModel.findById(req.params.id).populate('author');
+
+    for (const author of book.author) {
+      if (author.booksWritten.length === 1) {
+        await authorModel.findByIdAndDelete(author._id);
+        continue;
+      }
+      const bookIndex = author.booksWritten.findIndex(function (id) {
+        return id.toString() === req.params.id;
+      });
+      author.booksWritten.splice(bookIndex, 1);
+      await author.save();
+    }
+
+    await bookModel.findByIdAndDelete(req.params.id);
+
+    res.redirect('/books');
+  } catch {
+    res.render('error', { title: 'Something Went Wrong' });
+  }
+}
+
+module.exports = { index, create, show, delete: deleteBook };
