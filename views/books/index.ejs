@@ -12,14 +12,13 @@
       <label>
         Select author(s) if they exist (select multiple by holding CTRL and
         clicking):
-        <!-- FIX BY REFERENCING AUTHOR LIST INSTEAD OF FROM BOOKS -->
         <select name="existingAuthors" multiple>
           <option value=""></option>
-          <% books.forEach(function (b) { b.author.forEach(function (a) { %>
+          <% authors.forEach(function (a) { %>
           <option value="<%= a._id %>">
             <%= a.firstName %> <%= a.lastName %>
           </option>
-          <% }) }) %>
+          <% }) %>
         </select> </label
       ><br />
       <label>

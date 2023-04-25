@@ -4,13 +4,15 @@ const authorModel = require('../models/Author');
 async function index(req, res) {
   try {
     const books = await bookModel.find({}).populate('author');
-    res.render('books/index', { books, title: 'Your Books' });
+    const authors = await authorModel.find({});
+    res.render('books/index', { books, authors, title: 'Your Books' });
   } catch (error) {
     res.render('error', { title: 'Something Went Wrong' });
   }
 }
 
 async function create(req, res) {
+  // new author names
   const authorNames = req.body.authorName.trim().split(/\s*,\s*/);
   const authorObjects = [];
 
@@ -20,10 +22,20 @@ async function create(req, res) {
     }
     const authorDetail = {};
     const authorName = author.split(' ');
-    authorDetail.firstName = authorName[0];
-    authorDetail.lastName = authorName[1];
+    if (authorDetail.firstName) {
+      authorDetail.firstName = authorName[0];
+    }
+    if (authorDetail.lastName) {
+      authorDetail.lastName = authorName[1];
+    }
     authorDetail.booksWritten = [];
     authorObjects.push(authorDetail);
+  }
+
+  // existing authors
+  let existingAuthors = req.body.existingAuthors;
+  if (typeof existingAuthors === 'string' && existingAuthors !== '') {
+    existingAuthors = existingAuthors.split();
   }
 
   const bookDetail = {};
@@ -35,13 +47,7 @@ async function create(req, res) {
 
   try {
     const book = await bookModel.create(bookDetail);
-
-    let existingAuthors = req.body.existingAuthors;
-    if (typeof existingAuthors === 'string' && existingAuthors !== '') {
-      existingAuthors = existingAuthors.split();
-    }
-
-    if (existingAuthors.length !== 0) {
+    if (existingAuthors) {
       existingAuthors.forEach(async function (authorId) {
         book.author.push(authorId);
 
@@ -52,9 +58,8 @@ async function create(req, res) {
 
       await book.save();
     }
-
-    for (let authorDetail of authorObjects) {
-      const author = await authorModel.create(authorDetail);
+    for (let authorInfo of authorObjects) {
+      const author = await authorModel.create(authorInfo);
       author.booksWritten.push(book._id);
       await author.save();
 
