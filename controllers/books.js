@@ -23,7 +23,16 @@ async function create(req, res) {
     const authorDetail = {};
     const authorName = author.split(' ');
     authorDetail.firstName = authorName[0];
-    authorDetail.lastName = authorName[1];
+    if (authorName.length > 1) {
+      authorDetail.lastName = authorName[authorName.length - 1];
+      let middleNames = [];
+      for (let i = 1; i < authorName.length - 1; i++) {
+        middleNames.push(authorName[i]);
+      }
+      if (middleNames.length > 0) {
+        authorDetail.middleName = middleNames.join(' ');
+      }
+    }
     authorDetail.booksWritten = [];
     authorObjects.push(authorDetail);
   }
