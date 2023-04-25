@@ -1,5 +1,16 @@
 const userModel = require('../models/User');
 
+async function update(req, res) {
+  try {
+    const user = req.user;
+    user.booksRead.push(req.body);
+    await user.save();
+    console.log(req.body);    
+  } catch (error) {
+    res.render('error', { title: 'Something Went Wrong' });    
+  }
+}
+
 async function show(req, res) {
   try {
     await req.user.populate('booksRead');
@@ -9,4 +20,7 @@ async function show(req, res) {
   }
 }
 
-module.exports = { show };
+module.exports = { 
+  show,
+  update,
+};
