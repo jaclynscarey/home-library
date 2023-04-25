@@ -2,8 +2,7 @@ const userModel = require('../models/User');
 
 async function show(req, res) {
   try {
-    const user = await userModel.findById(req.params.id);
-    res.render('users/show', { title: 'User', user });
+    res.render('users/show', { title: 'User', user: req.user });
   } catch (err) {
     res.render('error', { title: 'Something Went Wrong' });
   }
