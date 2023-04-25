@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const authorSchema = new Schema({
   firstName: {
     type: String,
-    required: true,
   },
   lastName: {
     type: String,
@@ -14,7 +13,6 @@ const authorSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Book',
-      required: true,
     },
   ],
 });
