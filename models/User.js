@@ -7,7 +7,7 @@ const userSchema = new Schema(
     username: String,
     googleId: {
       type: String,
-      required: true
+      required: true,
     },
     email: String,
     avatar: String,
@@ -17,6 +17,10 @@ const userSchema = new Schema(
         ref: 'Book',
       },
     ],
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
