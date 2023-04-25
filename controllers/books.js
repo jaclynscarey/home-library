@@ -113,4 +113,14 @@ async function deleteBook(req, res) {
   }
 }
 
-module.exports = { index, create, show, delete: deleteBook };
+async function add(req, res) {
+  try {
+    req.user.booksRead.push(req.params.id);
+    req.user.save();
+    res.redirect(`/books/${req.params.id}`);
+  } catch {
+    res.render('error', { title: 'Something Went Wrong' });
+  }
+}
+
+module.exports = { index, create, show, delete: deleteBook, add };
