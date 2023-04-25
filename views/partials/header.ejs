@@ -4,9 +4,12 @@
     <a href="/books">Library</a>
     <a href="/authors">Authors</a>
     <% if (user) { %>
+    <a href="/users/<%= user._id %>">Profile</a>
     <a href="/logout">Log Out</a>
     <% } else { %>
-      <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <a href="/auth/google" class="login"
+      >Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"
+    /></a>
     <% } %>
   </nav>
   <h1><%= title %></h1>

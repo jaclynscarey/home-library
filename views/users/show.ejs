@@ -1,0 +1,6 @@
+<%- include('../partials/head') %> <%- include('../partials/header') %> User
+profile
+<p><%= user.username %></p>
+<% user.booksRead.forEach(function(book) {%>
+<p><%= book.title %></p>
+<%})%> <%- include('../partials/footer') %>

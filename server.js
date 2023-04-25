@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const indexRoutes = require('./routes/index');
 const bookRoutes = require('./routes/books');
 const authorRoutes = require('./routes/authors');
+const userRoutes = require('./routes/users');
 
 require('dotenv').config();
 require('./config/database');
@@ -21,11 +22,13 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
-app.use(session({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function (req, res, next) {
@@ -36,6 +39,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRoutes);
 app.use('/books', bookRoutes);
 app.use('/authors', authorRoutes);
+app.use('/users', userRoutes);
 
 const port = 3000;
 
