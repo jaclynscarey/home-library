@@ -89,4 +89,8 @@ async function show(req, res) {
   }
 }
 
-module.exports = { index, create, show };
+async function deleteBook(req, res) {
+  console.log(req.body);
+}
+
+module.exports = { index, create, show, delete: deleteBook };
