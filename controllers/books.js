@@ -22,12 +22,8 @@ async function create(req, res) {
     }
     const authorDetail = {};
     const authorName = author.split(' ');
-    if (authorDetail.firstName) {
-      authorDetail.firstName = authorName[0];
-    }
-    if (authorDetail.lastName) {
-      authorDetail.lastName = authorName[1];
-    }
+    authorDetail.firstName = authorName[0];
+    authorDetail.lastName = authorName[1];
     authorDetail.booksWritten = [];
     authorObjects.push(authorDetail);
   }
@@ -58,8 +54,8 @@ async function create(req, res) {
 
       await book.save();
     }
-    for (let authorInfo of authorObjects) {
-      const author = await authorModel.create(authorInfo);
+    for (let authorDetail of authorObjects) {
+      const author = await authorModel.create(authorDetail);
       author.booksWritten.push(book._id);
       await author.save();
 

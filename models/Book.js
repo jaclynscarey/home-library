@@ -3,19 +3,24 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
-  title: String,
+  title: {
+    type: String,
+    required: true,
+  },
   author: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Author',
+      required: true,
     },
   ],
   genre: String,
   publishYear: {
     type: Number,
-    // max: function () {
-    //   return new Date().getFullYear();
-    // },
+    min: 500,
+    max: function () {
+      return;
+    },
   },
   pageCount: {
     type: Number,
