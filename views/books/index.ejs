@@ -58,6 +58,11 @@
       <p>Publication year: <%= b.publishYear %></p>
       <p>Page count: <%= b.pageCount %></p>
       <a href="/books/<%= b._id %>">Details</a>
+      <% if (user && user.isAdmin) { %>
+      <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+      <% } %>
     </article>
     <% }) %>
   </section>
