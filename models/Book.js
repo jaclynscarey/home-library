@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
-  title: String,
+  title: {
+    type: String,
+    required: true,
+  },
   author: [
     {
       type: Schema.Types.ObjectId,
@@ -15,6 +18,9 @@ const bookSchema = new Schema({
   publishYear: {
     type: Number,
     min: 500,
+    max: function () {
+      return;
+    },
   },
   pageCount: {
     type: Number,
