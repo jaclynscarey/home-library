@@ -10,6 +10,7 @@ const authorRoutes = require('./routes/authors');
 
 require('dotenv').config();
 require('./config/database');
+require('./config/passport');
 
 const app = express();
 
