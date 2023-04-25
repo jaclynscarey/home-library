@@ -16,7 +16,7 @@
           <option value=""></option>
           <% authors.forEach(function (a) { %>
           <option value="<%= a._id %>">
-            <%= a.firstName %> <%= a.lastName %>
+            <%= a.firstName %> <%= a.middleName %> <%= a.lastName %>
           </option>
           <% }) %>
         </select> </label
@@ -47,8 +47,9 @@
       <h3><%= b.title %></h3>
       <p>
         Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
-        b.author.length - 1) { %> <%= a.firstName %> <%= a.lastName %> <% } else
-        { %> <%= a.firstName %> <%= a.lastName %>, <% } }) %>
+        b.author.length - 1) { %> <%= a.firstName %> <%= a.middleName %> <%=
+        a.lastName %> <% } else { %> <%= a.firstName %> <%= a.middleName %> <%=
+        a.lastName %>, <% } }) %>
       </p>
       <p>Genre: <%= b.genre %></p>
       <p>Publication year: <%= b.publishYear %></p>
