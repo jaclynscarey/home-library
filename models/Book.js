@@ -11,16 +11,12 @@ const bookSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Author',
-      required: true,
     },
   ],
   genre: String,
   publishYear: {
     type: Number,
     min: 500,
-    max: function () {
-      return;
-    },
   },
   pageCount: {
     type: Number,
