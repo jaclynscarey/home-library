@@ -11,9 +11,8 @@
     <p>Publication year: <%= b.publishYear %></p>
     <p>Page count: <%= b.pageCount %></p>
 
-    <form action="/users/<%= user._id %>" method="PUT">
-      <input type="text">
-      <button type="submit" value="book._id">Add to my Library</button>
+    <form action="/books/<%= b._id %>?_method=PUT" method="POST">
+      <button type="submit">Add to my Library</button>
     </form>
   </section>
 </main>
