@@ -1,6 +1,7 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
 <!-- Change h1 later -->
 <main>
+  <% if (user && user.isAdmin) { %>
   <section>
     <!-- Hide section -->
     <h2>Add a book</h2>
@@ -40,8 +41,10 @@
       <button type="submit">Add book</button>
     </form>
   </section>
+  <% } %>
+
   <section>
-    <h2>Your Books</h2>
+    <h2>Current Collection</h2>
     <% books.forEach(function (b) { %>
     <article>
       <h3><%= b.title %></h3>
