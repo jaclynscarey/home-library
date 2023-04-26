@@ -5,7 +5,7 @@ async function index(req, res) {
   try {
     const books = await bookModel.find({}).sort('title').populate('author');
     const authors = await authorModel.find({});
-    res.render('books/index', { books, authors, title: 'Your Books' });
+    res.render('books/index', { books, authors, title: 'Library' });
   } catch (error) {
     res.render('error', { title: 'Something Went Wrong' });
   }

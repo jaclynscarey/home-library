@@ -5,14 +5,15 @@ async function show(req, res) {
   try {
     await req.user.populate('booksRead');
 
-    req.user.booksRead.sort(function(a, b) {
+    req.user.booksRead.sort(function (a, b) {
       if (a.title < b.title) {
         return -1;
       } else if (a.title > b.title) {
         return 1;
       } else {
         return 0;
-      }});
+      }
+    });
 
     res.render('users/show', {
       title: `${req.user.username}'s Books`,
@@ -31,7 +32,7 @@ async function add(req, res) {
       user.booksRead.push(bookId);
       user.save();
     }
-    res.redirect('/books');
+    res.redirect('back');
   } catch (error) {
     res.render('error', { title: 'Something Went Wrong' });
   }
@@ -44,7 +45,7 @@ async function deleteBook(req, res) {
     });
     req.user.booksRead.splice(bookIndex, 1);
     req.user.save();
-    res.redirect(`/users/${req.user._id}`);
+    res.redirect('back');
   } catch (error) {
     res.render('error', { title: 'Something Went Wrong' });
   }

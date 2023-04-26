@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Andika', sans-serif;
+}
+
+h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+  font-size: 2.3rem;
+}
+
 .login {
-    height: 34px;
-  }
-  
-  .login img {
-    height: 30px;
-  }
-  
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}
