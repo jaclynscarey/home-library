@@ -5,17 +5,20 @@
     <table>
         <thead>
             <tr>
-                <th><%= title %></th>
+                <th colspan="2"><%= title %></th>
             </tr>
         </thead>
         <tbody>
+            <% author.booksWritten.forEach((b, i) => { %>
             <tr>
-                <% author.booksWritten.forEach((b, i) => { %>
                 <td>
                     <%= b.title %>
                 </td>
-                <% }) %>
+                <td>
+                    <a href="/books/<%= b._id %>">Details</a>
+                </td>
             </tr>
+            <% }) %>
         </tbody>
     </table>          
    
