@@ -9,6 +9,8 @@ router.post('/', booksController.create);
 
 router.get('/:id', booksController.show);
 
+router.get('/:id/edit', booksController.edit);
+
 router.put('/:id', booksController.update);
 
 router.delete('/:id', booksController.delete);
