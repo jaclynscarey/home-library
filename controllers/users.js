@@ -1,5 +1,4 @@
 const userModel = require('../models/User');
-const bookModel = require('../models/Book');
 
 async function show(req, res) {
   try {
