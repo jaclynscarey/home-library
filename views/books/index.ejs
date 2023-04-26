@@ -47,7 +47,7 @@
     <h2>Current Collection</h2>
     <% books.forEach(function (b) { %>
     <article>
-      <h3><%= b.title %></h3>
+      <h3><a href="/books/<%= b._id %>"><%= b.title %></a></h3>
       <p>
         Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
         b.author.length - 1) { %> <%= a.firstName %> <%= a.middleName %> <%=
@@ -57,7 +57,6 @@
       <p>Genre: <%= b.genre %></p>
       <p>Publication year: <%= b.publishYear %></p>
       <p>Page count: <%= b.pageCount %></p>
-      <a href="/books/<%= b._id %>">Details</a>
 
       <% if (user) { %>
       <form action="/users/<%= b._id %>?_method=PUT" method="POST">
