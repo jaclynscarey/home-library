@@ -3,7 +3,7 @@ const authorModel = require('../models/Author');
 
 async function index(req, res) {
   try {
-    const books = await bookModel.find({}).populate('author');
+    const books = await bookModel.find({}).sort('title').populate('author');
     const authors = await authorModel.find({});
     res.render('books/index', { books, authors, title: 'Your Books' });
   } catch (error) {
