@@ -7,19 +7,17 @@
       <tr>        
         <th>Author</th>
         <th>Title</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
       <% authors.forEach(a => { %>
       <tr>
-        <td><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></td>
+        <td><a href="/authors/<%= a._id %>/"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a></td>
         <td>
           <% a.booksWritten.forEach(function(b, i) { %>
           <p><%= b.title %></p>
           <% }) %>
         </td>
-        <td><a href="/authors/<%= a._id %>/">Details</a></td>
       </tr>
       <% }) %>
     </tbody>
