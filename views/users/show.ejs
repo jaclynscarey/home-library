@@ -1,7 +1,7 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
   <% user.booksRead.forEach(function(book) {%>
   <p>
-    <%= book.title %>
+    <a href="/books/<%= book.id %>"><%= book.title %></a>
     <form action="/users/<%=book._id %>?_method=DELETE" method="POST">
       <button type="submit">Delete</button>
     </form>
