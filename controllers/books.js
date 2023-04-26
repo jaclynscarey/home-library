@@ -123,7 +123,7 @@ async function edit(req, res) {
       .findById(req.params.id)
       .populate('author');
 
-    res.render('books/show', {
+    res.render('books/edit', {
       b: foundBook,
       title: 'Edit Book Details',
     });
