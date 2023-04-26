@@ -83,6 +83,7 @@ async function show(req, res) {
     const foundBook = await bookModel
       .findById(req.params.id)
       .populate('author');
+
     res.render('books/show', {
       b: foundBook,
       title: 'Book Details',
@@ -116,6 +117,21 @@ async function deleteBook(req, res) {
   }
 }
 
+async function edit(req, res) {
+  try {
+    const foundBook = await bookModel
+      .findById(req.params.id)
+      .populate('author');
+
+    res.render('books/show', {
+      b: foundBook,
+      title: 'Edit Book Details',
+    });
+  } catch (error) {
+    res.render('error', { title: 'Something Went Wrong' });
+  }
+}
+
 async function update(req, res) {}
 
-module.exports = { index, create, show, delete: deleteBook, update };
+module.exports = { index, create, show, delete: deleteBook, edit, update };
