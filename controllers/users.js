@@ -4,7 +4,15 @@ const bookModel = require('../models/Book');
 async function show(req, res) {
   try {
     await req.user.populate('booksRead');
- 
+
+    req.user.booksRead.sort(function(a, b) {
+      if (a.title < b.title) {
+        return -1;
+      } else if (a.title > b.title) {
+        return 1;
+      } else {
+        return 0;
+      }});
     res.render('users/show', {
       title: `${req.user.username}'s Books`,
       user: req.user,
