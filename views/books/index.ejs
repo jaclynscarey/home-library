@@ -53,10 +53,7 @@
         b.author.length - 1) { %> <a href="/authors/<%= a._id %>/"><%= a.firstName %> <%= a.middleName %> <%=
         a.lastName %></a> <% } else { %> <a href="/authors/<%= a._id %>/"><%= a.firstName %> <%= a.middleName %> <%=
         a.lastName %></a>, <% } }) %>
-      </p>
-      <p>Genre: <%= b.genre %></p>
-      <p>Publication year: <%= b.publishYear %></p>
-      <p>Page count: <%= b.pageCount %></p>
+      </p>     
       <div>
         <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
         <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
