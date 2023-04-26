@@ -16,11 +16,15 @@
       <% } %>
     </div>
     <div>
-      <% if (user) { %>
+      <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
+      <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete from My Books</button>
+      </form>
+      <% } else { %>
       <form action="/users/<%= b._id %>?_method=PUT" method="POST">
         <button type="submit">Add to My Books</button>
       </form>
-      <% } %>
+      <% }} %>
     </div>
     <div>
       <% if (user && user.isAdmin) { %>
