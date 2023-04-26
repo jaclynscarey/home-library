@@ -12,7 +12,7 @@
     <p>Page count: <%= b.pageCount %></p>
 
     <% if (user) { %>
-    <form action="/books/<%= b._id %>?_method=PUT" method="POST">
+    <form action="/users/<%= b._id %>?_method=PUT" method="POST">
       <button type="submit">Add to my Library</button>
     </form>
     <% } %>
