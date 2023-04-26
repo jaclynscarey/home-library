@@ -1,0 +1,52 @@
+<%- include('../partials/head') %> <%- include('../partials/header') %>
+<main>
+  <form
+    action="/books/<%= b.id %>?_method=PUT"
+    method="POST"
+    autocomplete="OFF"
+  >
+    <label>
+      Title:
+      <input type="text" name="title" value="<%= b.title %>" required /> </label
+    ><br />
+    <label>
+      Select author(s) if they exist (select multiple by holding CTRL and
+      clicking):
+      <select name="existingAuthors" multiple>
+        <option value=""></option>
+        <% authors.forEach(function (a) { %>
+        <option value="<%= a._id %>">
+          <%= a.firstName %> <%= a.middleName %> <%= a.lastName %>
+        </option>
+        <% }) %>
+      </select> </label
+    ><br />
+    <label>
+      Input new author(s) (separate by commas):
+      <input type="text" name="authorName" /> </label
+    ><br />
+    <label>
+      Genre:
+      <input type="text" name="genre" value="<%= b.genre %>" /> </label
+    ><br />
+    <label>
+      Publish year:
+      <input
+        type="number"
+        name="publishYear"
+        value="<%= b.publishYear %>"
+      /> </label
+    ><br />
+    <label>
+      Page count:
+      <input
+        type="number"
+        name="pageCount"
+        min="1"
+        value="<%= b.pageCount %>"
+      /> </label
+    ><br />
+    <button type="submit">Update Book</button>
+  </form>
+</main>
+<%- include('../partials/footer') %>

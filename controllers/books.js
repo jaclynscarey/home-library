@@ -83,7 +83,11 @@ async function show(req, res) {
     const foundBook = await bookModel
       .findById(req.params.id)
       .populate('author');
-    res.render('books/show', { b: foundBook, title: 'Book Details' });
+
+    res.render('books/show', {
+      b: foundBook,
+      title: 'Book Details',
+    });
   } catch (error) {
     res.render('error', { title: 'Something Went Wrong' });
   }
@@ -113,4 +117,24 @@ async function deleteBook(req, res) {
   }
 }
 
-module.exports = { index, create, show, delete: deleteBook, };
+async function edit(req, res) {
+  try {
+    const foundBook = await bookModel
+      .findById(req.params.id)
+      .populate('author');
+
+    const authors = await authorModel.find({});
+
+    res.render('books/edit', {
+      authors,
+      b: foundBook,
+      title: 'Edit Book Details',
+    });
+  } catch (error) {
+    res.render('error', { title: 'Something Went Wrong' });
+  }
+}
+
+async function update(req, res) {}
+
+module.exports = { index, create, show, delete: deleteBook, edit, update };
