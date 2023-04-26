@@ -8,9 +8,9 @@ router.get('/', booksController.index);
 
 router.post('/', isAdmin, booksController.create);
 
-router.get('/:id', booksController.show);
-
 router.get('/:id/edit', isAdmin, booksController.edit);
+
+router.get('/:id', booksController.show);
 
 router.put('/:id', isAdmin, booksController.update);
 
