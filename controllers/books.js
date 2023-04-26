@@ -113,4 +113,6 @@ async function deleteBook(req, res) {
   }
 }
 
-module.exports = { index, create, show, delete: deleteBook, };
+async function edit(req, res) {}
+
+module.exports = { index, create, show, delete: deleteBook, edit };
