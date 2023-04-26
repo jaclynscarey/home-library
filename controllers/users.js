@@ -1,8 +1,10 @@
 const userModel = require('../models/User');
+const bookModel = require('../models/Book');
 
 async function show(req, res) {
   try {
     await req.user.populate('booksRead');
+ 
     res.render('users/show', {
       title: `${req.user.username}'s Books`,
       user: req.user,
