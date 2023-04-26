@@ -3,7 +3,7 @@
     <div>
         <a href="/books/<%= book.id %>"><%= book.title %></a>
         <form action="/users/<%=book._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete</button>
+          <button type="submit">Delete from My Books</button>
         </form>
     </div>
 <% }) %>

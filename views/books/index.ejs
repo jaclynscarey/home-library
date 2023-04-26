@@ -38,7 +38,7 @@
         Page count:
         <input type="number" name="pageCount" min="1" /> </label
       ><br />
-      <button type="submit">Add book</button>
+      <button type="submit">Add book to Library</button>
     </form>
   </section>
   <% } %>
@@ -57,18 +57,20 @@
       <p>Genre: <%= b.genre %></p>
       <p>Publication year: <%= b.publishYear %></p>
       <p>Page count: <%= b.pageCount %></p>
-
-      <% if (user) { %>
-      <form action="/users/<%= b._id %>?_method=PUT" method="POST">
-      <button type="submit">Add to my Library</button>
-      </form>
-      <% } %>
-
-      <% if (user && user.isAdmin) { %>
-      <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-      </form>
-      <% } %>
+      <div>
+        <% if (user) { %>
+        <form action="/users/<%= b._id %>?_method=PUT" method="POST">
+          <button type="submit">Add to My Books</button>
+        </form>
+        <% } %>
+      </div>
+      <div>
+        <% if (user && user.isAdmin) { %>
+        <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete from Library</button>
+        </form>
+        <% } %>
+      </div>
     </article>
     <% }) %>
   </section>
