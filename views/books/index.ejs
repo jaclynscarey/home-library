@@ -57,9 +57,6 @@
           ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
         >, <% } }) %>
       </p>
-      <p>Genre: <%= b.genre %></p>
-      <p>Publication year: <%= b.publishYear %></p>
-      <p>Page count: <%= b.pageCount %></p>
       <div>
         <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
         <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
