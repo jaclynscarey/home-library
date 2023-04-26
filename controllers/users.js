@@ -1,4 +1,5 @@
 const userModel = require('../models/User');
+const bookModel = require('../models/Book');
 
 async function show(req, res) {
   try {
@@ -12,6 +13,7 @@ async function show(req, res) {
       } else {
         return 0;
       }});
+
     res.render('users/show', {
       title: `${req.user.username}'s Books`,
       user: req.user,
