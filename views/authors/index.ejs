@@ -15,7 +15,7 @@
         <td><a href="/authors/<%= a._id %>/"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a></td>
         <td>
           <% a.booksWritten.forEach(function(b, i) { %>
-          <p><%= b.title %></p>
+          <p><a href="/books/<%= b._id %>"><%= b.title %></a></p>
           <% }) %>
         </td>
       </tr>
