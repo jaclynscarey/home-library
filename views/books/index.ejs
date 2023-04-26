@@ -58,6 +58,13 @@
       <p>Publication year: <%= b.publishYear %></p>
       <p>Page count: <%= b.pageCount %></p>
       <a href="/books/<%= b._id %>">Details</a>
+
+      <% if (user) { %>
+      <form action="/books/<%= b._id %>?_method=PUT" method="POST">
+      <button type="submit">Add to my Library</button>
+      </form>
+      <% } %>
+
       <% if (user && user.isAdmin) { %>
       <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
