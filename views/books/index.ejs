@@ -61,11 +61,9 @@
 
       <% if (user) { %>
       <form action="/users/<%= b._id %>?_method=PUT" method="POST">
-      <button type="submit">Add to my Library</button>
+        <button type="submit">Add to my Library</button>
       </form>
-      <% } %>
-
-      <% if (user && user.isAdmin) { %>
+      <% } %> <% if (user && user.isAdmin) { %>
       <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
       </form>
