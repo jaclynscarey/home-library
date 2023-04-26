@@ -86,7 +86,6 @@ async function show(req, res) {
     res.render('books/show', {
       b: foundBook,
       title: 'Book Details',
-      isEditing: true,
     });
   } catch (error) {
     res.render('error', { title: 'Something Went Wrong' });
