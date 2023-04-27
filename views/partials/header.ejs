@@ -1,14 +1,18 @@
 <header>
   <nav>
-    <a href="/">Home</a>
-    <a href="/books">Library</a>
-    <a href="/authors">Authors</a>
-    <% if (user) { %>
-    <a href="/users/<%= user._id %>">My Books</a>
-    <a href="/logout">Log Out</a>
-    <% } else { %>
-    <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"/></a>
-    <% } %>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/books">Library</a></li>
+      <li><a href="/authors">Authors</a></li>
+      <% if (user) { %>
+      <li><a href="/users/<%= user._id %>">My Books</a></li>
+      <li><a href="/logout">Log Out</a></li>
+      <% } else { %>
+      <li>
+        <a href="/auth/google" class="login">Log In</a>
+      </li>
+      <% } %>
+    </ul>
   </nav>
   <h1><%= title %></h1>
 </header>
