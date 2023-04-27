@@ -146,15 +146,20 @@ article.card {
   width: 15rem;
   height: 15rem;
   overflow: hidden;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
   transition: 0.3s;
   border-radius: 20px;
-  background-color: rgba(255, 255, 0, 0.264);
-  color: black;
+  background-color: purple;
+  color: white;
+  font-weight: bold;
+}
+
+article.card:hover {
+  box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.6);
 }
 
 article.card a {
-  color: navy;
+  color: yellow;
 }
 
 section.card-container article.book-index, article.user-show{
@@ -174,6 +179,7 @@ section.card-container article.author-index {
   grid-template-rows: 1fr 1fr 1fr;
   flex-direction: column;
   height: 9.2rem;
+  background-color: red;
 }
 
 section.card-container article.author-index:hover {
@@ -192,9 +198,6 @@ section.card-container article.author-index:hover > span {
   display: none;
 }
 
-article.card:hover {
-  box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.2);
-}
 
 h3 {
   margin: 10px auto;
