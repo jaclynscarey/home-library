@@ -10,7 +10,7 @@
           <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.lastName %></a>,
         <% } }) %>
     </p>
-    <p>Genre: <%= b.genre %></p>
+    <p>Genre: <%= b.genre[0].toUpperCase() + b.genre.substring(1) %></p>
     <p>Publication year: <%= b.publishYear %></p>
     <p>Page count: <%= b.pageCount %></p>
     <div>

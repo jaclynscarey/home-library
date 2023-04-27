@@ -1,24 +1,21 @@
-<%- include('../partials/head') %>
-<%- include('../partials/header') %>
+<%- include('../partials/head') %> <%- include('../partials/header') %>
 <main>
-
-    <table>
-        <thead>
-            <tr>
-                <th><%= title %></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% author.booksWritten.forEach((b, i) => { %>
-            <tr>
-                <td>
-                    <a href="/books/<%= b._id %>"><%= b.title %></a>
-                </td>                
-            </tr>
-            <% }) %>
-        </tbody>
-    </table>          
-   
+  <table>
+    <thead>
+      <tr>
+        <th><%= title %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% author.booksWritten.forEach((b, i) => { %>
+      <tr>
+        <td>
+          <a href="/books/<%= b._id %>"><%= b.title %></a>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
 </main>
 
 <%- include('../partials/footer') %>

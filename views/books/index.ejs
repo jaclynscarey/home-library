@@ -1,9 +1,7 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
-<!-- Change h1 later -->
 <main>
   <% if (user && user.isAdmin) { %>
   <section>
-    <!-- Hide section -->
     <h2>Add a book</h2>
     <form action="/books" method="POST">
       <label>
@@ -50,10 +48,15 @@
       <h3><a href="/books/<%= b._id %>"><%= b.title %></a></h3>
       <p>
         Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
-        b.author.length - 1) { %> <a href="/authors/<%= a._id %>/"><%= a.firstName %> <%= a.middleName %> <%=
-        a.lastName %></a> <% } else { %> <a href="/authors/<%= a._id %>/"><%= a.firstName %> <%= a.middleName %> <%=
-        a.lastName %></a>, <% } }) %>
-      </p>     
+        b.author.length - 1) { %>
+        <a href="/authors/<%= a._id %>/"
+          ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
+        >
+        <% } else { %>
+        <a href="/authors/<%= a._id %>/"
+          ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
+        >, <% } }) %>
+      </p>
       <div>
         <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
         <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
