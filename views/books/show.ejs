@@ -66,6 +66,19 @@
         <button type="submit">Add Review</button>
       </form>
     </div>
+    <div>
+      <% if (b.reviews.length) { %> <% b.reviews.forEach(function(r) { %>
+      <article>
+        <p><%= user.username %></p>
+        <p><img src="<%= user.avatar %>" alt="user profile picture" /></p>
+        <p><%= r.createdAt.toLocaleDateString() %></p>
+        <p><%= r.content %></p>
+        <p><%= r.rating %></p>
+      </article>
+      <% }); %> <% } else { %>
+      <h5>No reviews yet. Add a review if you've read the book!</h5>
+      <% } %>
+    </div>
     <% } %>
   </section>
 </main>
