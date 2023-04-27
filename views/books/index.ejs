@@ -2,7 +2,8 @@
 
 <main>
   <% if (user && user.isAdmin) { %>
-  <section>
+  <button id="form-btn">Show Add Book Form</button>
+  <section class="form-section">
     <form action="/books" method="POST" id="addForm">
       <h2>Add a book</h2>
       <label>
@@ -37,7 +38,7 @@
         Page count:<br />
         <input type="number" name="pageCount" min="1" /></label
       ><br />
-      <button type="submit">Add book to Library</button>
+      <button type="submit">Add Book to Library</button>
     </form>
   </section>
   <% } %>
