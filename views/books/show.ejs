@@ -18,7 +18,8 @@
     <p>Genre: <%= b.genre[0].toUpperCase() + b.genre.substring(1) %></p>
     <p>Publication year: <%= b.publishYear %></p>
     <p>Page count: <%= b.pageCount %></p>
-
+  </section>
+  <section>
     <% if (user && user.isAdmin) { %>
     <div class="link-btn-container">
       <a href="/books/<%= b._id %>/edit" class="link-btn">Edit Book</a>
@@ -37,6 +38,32 @@
     <div>
       <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete from Library</button>
+      </form>
+    </div>
+    <% } %>
+  </section>
+  <section>
+    <h4>Reviews</h4>
+    <% if (user && user.booksRead.includes(b._id)) { %>
+    <div>
+      <form method="POST" action="/books/<%= b._id %>/reviews">
+        <label
+          >Review:<br />
+          <textarea name="content"></textarea>
+        </label>
+        <br />
+        <label
+          >Rating:
+          <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5" selected>5</option>
+          </select>
+        </label>
+        <br />
+        <button type="submit">Add Review</button>
       </form>
     </div>
     <% } %>
