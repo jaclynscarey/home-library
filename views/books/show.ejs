@@ -1,8 +1,6 @@
-<%- include('../partials/head') %> 
-<%- include('../partials/header') %>
+<%- include('../partials/head') %> <%- include('../partials/header') %>
 
 <main>
-
   <h2><%= b.title %></h2>
   <section>
     <h3><%= b.title %></h3>
@@ -21,14 +19,12 @@
     <p>Publication year: <%= b.publishYear %></p>
     <p>Page count: <%= b.pageCount %></p>
 
+    <% if (user && user.isAdmin) { %>
     <div class="link-btn-container">
-      <% if (user && user.isAdmin) { %>
       <a href="/books/<%= b._id %>/edit" class="link-btn">Edit Book</a>
-      <% } %>
     </div>
-
+    <% } %> <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
     <div>
-      <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
       <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete from My Books</button>
       </form>
@@ -36,17 +32,14 @@
       <form action="/users/<%= b._id %>?_method=PUT" method="POST">
         <button type="submit">Add to My Books</button>
       </form>
-      <% }} %>
     </div>
-
+    <% }} %> <% if (user && user.isAdmin) { %>
     <div>
-      <% if (user && user.isAdmin) { %>
       <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete from Library</button>
       </form>
-      <% } %>
     </div>
-
+    <% } %>
   </section>
 </main>
 <%- include('../partials/footer') %>
