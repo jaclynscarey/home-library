@@ -155,7 +155,7 @@ section.card-container article.book-index {
 
 section.card-container article.author-index {
   display: grid;
-  grid-template-rows: 1fr 1fr .75fr;
+  grid-template-rows: 1fr 1fr 1fr;
   flex-direction: column;
   height: 10rem;
 }
@@ -166,10 +166,9 @@ section.card-container article.author-index:hover {
 
 article.card span.hide {
   position: absolute;
-  top: 0;
   float: right;
-  /* position: relative;
-  bottom: 18px;   */
+  margin-top: -11px;
+  color: gray;
 }
 
 section.card-container article.author-index:hover > span {
