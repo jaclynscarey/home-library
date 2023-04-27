@@ -1,8 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@400;500;600;700&display=swap');
 
+#header-worm {
+  height: 8svw;
+  width: auto;
+  align-self: center;
+}
+
+#title-div {
+  display: flex;
+  align-content: center;
+  margin: 0 auto;
+  width: 100vw;
+}
+
+#google-logo {
+  height: 4svw;
+  /* margin-left: 1svw; */
+}
+
+#abc-blocks {
+  width: 20rem;
+  align-self: flex-end;
+  align-items: flex-end;
+  margin-right: 3rem;
+}
+
+nav {
+  display: flex;
+  align-content: center;
+  width: 100vw;
+  height: 9svw;
+  background-color: yellow;
+  align-items: center;
+  box-shadow: 2px black;
+}
+
+a {
+  text-decoration: none;  
+}
+
+nav > a {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 4svw;
+  margin: auto 1rem;
+  white-space: nowrap;
+  color: black;
+}
+
+#home:hover {
+  color: white;
+  background-color: red;
+  height: 9svw;
+}
+
+#library:hover {
+  color: white;
+  background-color: blue;
+  height: 9svw;
+}
+
+#authors:hover {
+  color: white;
+  background-color: green;
+  height: 9svw;
+}
+
+#my-books:hover {
+  color: white;
+  background-color: purple;
+  height: 9svw;
+}
+
+#log-out:hover {
+  color: white;
+  background-color: orange;
+  height: 9svw;
+}
+
+.log-in:hover {
+  color: white;
+  background-color: orange;
+  height: 9svw;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
   font-family: 'Andika', sans-serif;
+  height: 100vh;
+}
+
+main {
+  flex-grow: 3;
 }
 
 section {
@@ -29,16 +120,9 @@ article {
   overflow: scroll;
 }
 
-h1 {
+h1{
   font-family: 'Fredoka', sans-serif;
   font-weight: 500;
-  font-size: 2.3rem;
+  font-size: 5svw;
 }
 
-.login {
-  height: 34px;
-}
-
-.login img {
-  height: 30px;
-}
