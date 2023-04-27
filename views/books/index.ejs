@@ -3,7 +3,7 @@
 <main>
   <% if (user && user.isAdmin) { %>
   <button id="form-btn">Show Add Book Form</button>
-  <section class="form-section">
+  <section id="form-section" class="hidden">
     <form action="/books" method="POST" id="addForm">
       <h2>Add a book</h2>
       <label>
