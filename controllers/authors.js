@@ -1,5 +1,4 @@
 const authorModel = require('../models/Author');
-const bookModel = require('../models/Book');
 
 async function index(req, res) {
   try {
