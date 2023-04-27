@@ -58,6 +58,13 @@
           ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
         >, <% } }) %>
       </p>
+      <p class="stock-book-container">
+        <img
+          src="/img/stockBook.png"
+          alt="book stock image"
+          class="stock-book"
+        />
+      </p>
 
       <div>
         <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>

@@ -25,7 +25,7 @@ nav {
 }
 
 a {
-  text-decoration: none;  
+  text-decoration: none;
 }
 
 nav > ul > li {
@@ -111,7 +111,7 @@ section.card-container article.card {
   overflow: auto;
 }
 
-h1{
+h1 {
   font-family: 'Fredoka', sans-serif;
   font-weight: 500;
   font-size: 5svw;
@@ -163,4 +163,13 @@ a.link-btn:hover {
   border-radius: 4px;
   background-color: #f1f1f1;
   width: 50vmin;
+}
+
+p.stock-book-container {
+  margin: 0;
+  padding: 0;
+}
+
+.stock-book {
+  max-width: 100px;
 }
