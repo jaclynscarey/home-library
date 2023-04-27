@@ -6,10 +6,13 @@
   <p>Thanks for contributing to the little bookworms community.</p>
   <% } else if (user) { %>
   <h2>Welcome back, <%= user.username %>!</h2>
-  <p>
-    Browse the library and add books to your own collection, or check out the
-    authors in our library.
-  </p>
+  <section class="home-section">
+    <img id="kids" src="/img/kids.jpeg" alt="Kids Reading">
+    <p>
+      Browse the library and add books to your own collection, or check out the
+      authors in our library.
+    </p>
+  </section>
   <% } else { %>
   <h2>Welcome, guest!</h2>
   <p>
