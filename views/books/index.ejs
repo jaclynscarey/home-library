@@ -3,7 +3,7 @@
 <main>
   <% if (user && user.isAdmin) { %>
   <h2>Add a book</h2>
-  <section>
+  <section class="form-section">
     <form action="/books" method="POST" id="addForm">
       <label>
         Title:
@@ -44,7 +44,7 @@
 
   <section class="card-container">
     <% books.forEach(function (b) { %>
-    <article class="card">
+    <article class="card book-index">
       <h3><a href="/books/<%= b._id %>"><%= b.title %></a></h3>
 
       <p>
