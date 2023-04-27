@@ -47,9 +47,15 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    const foundBook = await bookModel
-      .findById(req.params.id)
-      .populate('author');
+    const foundBook = await bookModel.findById(req.params.id).populate([
+      { path: 'author' },
+      {
+        path: 'reviews',
+        populate: {
+          path: 'user',
+        },
+      },
+    ]);
 
     res.render('books/show', {
       b: foundBook,

@@ -48,7 +48,7 @@
     <div>
       <form method="POST" action="/books/<%= b._id %>/reviews">
         <label
-          >Review:<br />
+          >Your Review:<br />
           <textarea name="content"></textarea>
         </label>
         <br />
@@ -66,18 +66,25 @@
         <button type="submit">Add Review</button>
       </form>
     </div>
+    <% } %>
     <div>
       <% if (b.reviews.length) { %> <% b.reviews.forEach(function(r) { %>
       <article>
-        <p><%= user.username %></p>
-        <p><img src="<%= user.avatar %>" alt="user profile picture" /></p>
+        <p><%= r.user.username %></p>
+        <p class="pfp-container">
+          <img
+            src="<%= r.user.avatar %>"
+            alt="user profile picture"
+            onerror="this.onerror=null;this.src='/img/stockBook.png';"
+            class="pfp"
+          />
+        </p>
         <p><%= r.createdAt.toLocaleDateString() %></p>
         <p><%= r.content %></p>
         <p><%= r.rating %></p>
       </article>
       <% }); %> <% } else { %>
-      <h5>No reviews yet. Add a review if you've read the book!</h5>
-      <% } %>
+      <p>No reviews yet. Add a review if you've read the book!</p>
     </div>
     <% } %>
   </section>
