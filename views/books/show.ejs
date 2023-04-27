@@ -2,20 +2,23 @@
 <main>
   <section>
     <h3><%= b.title %></h3>
-    <p>Author(s): 
-      <% b.author.forEach(function(a, i) { %>
-        <% if (i === b.author.length - 1) { %>
-          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>
-        <% } else { %>
-          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>,
-        <% } }) %>
+    <p>
+      Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
+      b.author.length - 1) { %>
+      <a href="/authors/<%= a._id %>"
+        ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
+      >
+      <% } else { %>
+      <a href="/authors/<%= a._id %>"
+        ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
+      >, <% } }) %>
     </p>
     <p>Genre: <%= b.genre[0].toUpperCase() + b.genre.substring(1) %></p>
     <p>Publication year: <%= b.publishYear %></p>
     <p>Page count: <%= b.pageCount %></p>
-    <div>
+    <div class="link-btn-container">
       <% if (user && user.isAdmin) { %>
-      <a href="/books/<%= b._id %>/edit">Edit Book</a>
+      <a href="/books/<%= b._id %>/edit" class="link-btn">Edit Book</a>
       <% } %>
     </div>
     <div>
