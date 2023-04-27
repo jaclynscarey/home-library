@@ -1,31 +1,21 @@
-<%- include('../partials/head') %> <%- include('../partials/header') %>
+<%- include('../partials/head') %> 
+<%- include('../partials/header') %>
+
 <main>
+
   <h2>Find Your Favorite Author</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Author</th>
-        <th>Title</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% authors.forEach(a => { %>
-      <tr>
-        <td>
-          <a href="/authors/<%= a._id %>/"
-            ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
-          >
-        </td>
-        <td>
-          <% a.booksWritten.forEach(function(b, i) { %>
+  <section class="card-container">
+    <% authors.forEach(a => { %>
+    <article>
+      <h3><a href="/authors/<%= a._id %>/"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a></h3>
+      <p>Book(s) Written:</p>
+        <% a.booksWritten.forEach(function(b, i) { %>
           <p><a href="/books/<%= b._id %>"><%= b.title %></a></p>
-          <% }) %>
-        </td>
-      </tr>
-      <% }) %>
-    </tbody>
-  </table>
-</main>
+        <% }) %>
+    </article>
+    <% }) %>
+  </section>
 
+</main>
 <%- include('../partials/footer') %>
