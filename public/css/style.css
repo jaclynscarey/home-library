@@ -5,6 +5,7 @@
   height: 8svw;
   width: auto;
   align-self: center;
+  margin: 0 40px;
 }
 
 #abc-blocks {
@@ -22,6 +23,10 @@ nav {
   background-color: yellow;
   align-items: center;
   box-shadow: 2px black;
+}
+
+div.title-div {
+  display: flex;
 }
 
 a {
