@@ -1,22 +1,31 @@
-<%- include('../partials/head') %> <%- include('../partials/header') %>
-<% user.booksRead.forEach(function(book) { %>
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
 
-  <div>
-    <a href="/books/<%= book.id %>"><%= book.title %></a>
+<main>
 
-    <% book.author.forEach(function(author, i) { %>
-      <% if (!author.middleName) { %>
-        <p><a href="/authors/<%= author._id %>"><%= author.firstName %> <%= author.lastName %></a></p>
-      <% } else { %>
-        <p><a href="/authors/<%= author._id %>"><%= author.firstName %> <%= author.middleName %> <%= author.lastName %></a></p>
-      <% } %>   
+  <section class="card-container">
+    <% user.booksRead.forEach(function(book) { %>  
+      <article>
+        <h3><a href="/books/<%= book.id %>"><%= book.title %></a></h3>
+        
+        <p>Author(s):
+        <% book.author.forEach(function(author, i) { %>
+          <% if (i === book.author.length - 1) { %>
+            <a href="/authors/<%= author._id %>"><%= author.firstName %> <%= author.middleName %> <%= author.lastName %></a>
+          <% } else { %>
+            <a href="/authors/<%= author._id %>"><%= author.firstName %> <%= author.middleName %> <%= author.lastName %></a>,
+          <% } %>   
+        <% }) %>
+        </p>        
+    
+        <form action="/users/<%=book._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete from My Books</button>
+        </form>
+      </article>    
     <% }) %>
+  </section>
 
-    <form action="/users/<%=book._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete from My Books</button>
-    </form>
-  </div>
-  
-<% }) %>
+</main>
+
 <%- include('../partials/footer') %>
 

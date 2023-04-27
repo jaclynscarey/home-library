@@ -5,9 +5,9 @@
     <p>Author(s): 
       <% b.author.forEach(function(a, i) { %>
         <% if (i === b.author.length - 1) { %>
-          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.lastName %></a>
+          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>
         <% } else { %>
-          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.lastName %></a>,
+          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>,
         <% } }) %>
     </p>
     <p>Genre: <%= b.genre[0].toUpperCase() + b.genre.substring(1) %></p>
