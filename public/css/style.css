@@ -121,6 +121,12 @@ section {
   margin: 1rem auto;
 }
 
+.form-section {
+  margin: 0 auto;
+  width: fit-content;
+  padding: 50px;
+}
+
 section.card-container {
   display: flex;
   justify-content: center;
@@ -128,22 +134,30 @@ section.card-container {
   flex-direction: row;
 }
 
-section.card-container article.card {
-  border: 0.1rem solid black;
+article.card {
+  /* border: 0.1rem solid black; */
   margin: 0.5rem;
-  padding: 1rem;
+  padding: 15px;
   text-align: center;
   word-wrap: normal;
   width: 15rem;
   height: 15rem;
-  overflow: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 20px;
+  background-color: ;
 }
 
-section.card-container article.card:hover {
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+section.card-container article.book-index {
+  display: grid;
+  grid-template-rows: 2fr 2fr 2fr 1fr 1fr;
+  flex-direction: column;
+  height: 25rem;
+}
+
+article.card:hover {
+  box-shadow: 0 8px 25px 0 rgba(0,0,0,0.2);
 }
 
 button {
@@ -154,6 +168,10 @@ button {
   border-radius: 8px;
   border: 1px solid darkgoldenrod;
   transition: 0.2s;
+}
+
+article.book-index button {
+
 }
 
 button:hover {
