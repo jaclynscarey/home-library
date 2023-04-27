@@ -50,16 +50,18 @@ function createBookDetail(bookBody) {
   return bookDetail;
 }
 
-async function create(req, res) {
-  const authorObjects = createNewAuthorDetails(req.body.authorName);
-
-  // existing authors
-  let existingAuthors = req.body.existingAuthors;
+function refactorExistingAuthors(existingAuthorBody) {
+  let existingAuthors = existingAuthorBody;
   if (typeof existingAuthors === 'string' && existingAuthors !== '') {
     existingAuthors = existingAuthors.split();
   }
+  return existingAuthors;
+}
 
+async function create(req, res) {
+  const authorObjects = createNewAuthorDetails(req.body.authorName);
   const bookDetail = createBookDetail(req.body);
+  let existingAuthors = refactorExistingAuthors(req.body.existingAuthors);
 
   try {
     const book = await bookModel.create(bookDetail);
