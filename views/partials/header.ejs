@@ -1,18 +1,18 @@
 <header>
   <nav>
-    <a id="home" href="/">Home</a>
-    <a id="library" href="/books">Library</a>
-    <a id="authors" href="/authors">Authors</a>
-    <% if (user) { %>
-    <a id="my-books" href="/users/<%= user._id %>">My Books</a>
-    <a id="log-out" href="/logout">Log Out</a>
-    <% } else { %>
-    <!-- <a class="log-in" href="/auth/google">Log In</a> -->
-    <a class="log-in" href="/auth/google">Log In</a>
-    <% } %>
+    <ul>
+      <li><a id="home" href="/">Home</a></li>
+      <li><a id="library" href="/books">Library</a></li>
+      <li><a id="authors" href="/authors">Authors</a></li>
+      <% if (user) { %>
+      <li><a id="my-books" href="/users/<%= user._id %>">My Books</a></li>
+      <li><a id="log-out" href="/logout">Log Out</a></li>
+      <% } else { %>
+      <li><a id="log-in" href="/auth/google">Log In</a></li>
+      <% } %>
+    </ul>
   </nav>
-  <div id="title-div">
-    <img id="header-worm" src="/img/worm.png" alt="Book Worm">
+    <img id="header-worm" src="/img/worm.png" alt="Bookworm">
     <h1>Little Book Worms</h1>
   </div>
 </header>

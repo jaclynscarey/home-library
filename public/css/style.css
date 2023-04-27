@@ -7,18 +7,6 @@
   align-self: center;
 }
 
-#title-div {
-  display: flex;
-  align-content: center;
-  margin: 0 auto;
-  width: 100vw;
-}
-
-#google-logo {
-  height: 4svw;
-  /* margin-left: 1svw; */
-}
-
 #abc-blocks {
   width: 20rem;
   align-self: flex-end;
@@ -40,7 +28,8 @@ a {
   text-decoration: none;
 }
 
-nav > a {
+nav > ul > li {
+  display: inline;
   font-family: 'Fredoka', sans-serif;
   font-weight: 600;
   font-size: 4svw;
@@ -79,7 +68,7 @@ nav > a {
   height: 9svw;
 }
 
-.log-in:hover {
+#log-in:hover {
   color: white;
   background-color: orange;
   height: 9svw;
@@ -94,14 +83,6 @@ body {
 
 main {
   flex-grow: 3;
-}
-
-.login {
-  height: 34px;
-}
-
-.login img {
-  height: 30px;
 }
 
 /* section {
