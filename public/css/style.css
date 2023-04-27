@@ -5,28 +5,29 @@ body {
   font-family: 'Andika', sans-serif;
 }
 
-section {
+/* section {
   display: flex;
   flex-direction: row;
   max-width: 73rem;
   height: auto;
   margin: 1rem auto;
-}
+} */
 
-.card-container {
+section.card-container {
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-article {
-  border: .1rem solid black;
-  margin: .5rem;
+section.card-container article.card {
+  border: 0.1rem solid black;
+  margin: 0.5rem;
   padding: 1rem;
   text-align: center;
   word-wrap: normal;
   width: 15rem;
   height: 15rem;
-  overflow: scroll;
+  overflow: auto;
 }
 
 h1 {
