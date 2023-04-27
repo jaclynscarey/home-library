@@ -39,6 +39,17 @@ function createNewAuthorDetails(authorBody) {
   return authorObjects;
 }
 
+function createBookDetail(bookBody) {
+  const bookDetail = {};
+  bookDetail.title = bookBody.title;
+  bookDetail.genre = bookBody.genre;
+  bookDetail.publishYear = Number(bookBody.publishYear);
+  bookDetail.pageCount = Number(bookBody.pageCount);
+  bookDetail.author = [];
+
+  return bookDetail;
+}
+
 async function create(req, res) {
   const authorObjects = createNewAuthorDetails(req.body.authorName);
 
@@ -48,12 +59,7 @@ async function create(req, res) {
     existingAuthors = existingAuthors.split();
   }
 
-  const bookDetail = {};
-  bookDetail.title = req.body.title;
-  bookDetail.genre = req.body.genre;
-  bookDetail.publishYear = Number(req.body.publishYear);
-  bookDetail.pageCount = Number(req.body.pageCount);
-  bookDetail.author = [];
+  const bookDetail = createBookDetail(req.body);
 
   try {
     const book = await bookModel.create(bookDetail);
