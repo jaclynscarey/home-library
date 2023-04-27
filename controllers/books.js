@@ -65,6 +65,7 @@ async function create(req, res) {
 
   try {
     const book = await bookModel.create(bookDetail);
+
     if (existingAuthors) {
       existingAuthors.forEach(async function (authorId) {
         book.author.push(authorId);
@@ -73,9 +74,9 @@ async function create(req, res) {
         author.booksWritten.push(book._id);
         await author.save();
       });
-
       await book.save();
     }
+
     for (let authorDetail of authorObjects) {
       const author = await authorModel.create(authorDetail);
       author.booksWritten.push(book._id);
