@@ -1,11 +1,9 @@
-<%- include('../partials/head') %> <%- include('../partials/header') %>
-<% user.booksRead.forEach(function(book) { %>
-    <div>
-        <a href="/books/<%= book.id %>"><%= book.title %></a>
-        <form action="/users/<%=book._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete from My Books</button>
-        </form>
-    </div>
-<% }) %>
-<%- include('../partials/footer') %>
-
+<%- include('../partials/head') %> <%- include('../partials/header') %> <%
+user.booksRead.forEach(function(book) { %>
+<div>
+  <a href="/books/<%= book.id %>"><%= book.title %></a>
+  <form action="/users/<%=book._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete from My Books</button>
+  </form>
+</div>
+<% }) %> <%- include('../partials/footer') %>
