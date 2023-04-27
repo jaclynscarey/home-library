@@ -11,53 +11,6 @@ async function index(req, res) {
   }
 }
 
-function createNewAuthorDetails(authorBody) {
-  const authorNames = authorBody.trim().split(/\s*,\s*/);
-  const authorObjects = [];
-
-  for (let author of authorNames) {
-    if (author === '') {
-      continue;
-    }
-    const authorDetail = {};
-    const authorName = author.split(' ');
-    authorDetail.firstName = authorName[0];
-    if (authorName.length > 1) {
-      authorDetail.lastName = authorName[authorName.length - 1];
-      let middleNames = [];
-      for (let i = 1; i < authorName.length - 1; i++) {
-        middleNames.push(authorName[i]);
-      }
-      if (middleNames.length > 0) {
-        authorDetail.middleName = middleNames.join(' ');
-      }
-    }
-    authorDetail.booksWritten = [];
-    authorObjects.push(authorDetail);
-  }
-
-  return authorObjects;
-}
-
-function createBookDetail(bookBody) {
-  const bookDetail = {};
-  bookDetail.title = bookBody.title;
-  bookDetail.genre = bookBody.genre;
-  bookDetail.publishYear = Number(bookBody.publishYear);
-  bookDetail.pageCount = Number(bookBody.pageCount);
-  bookDetail.author = [];
-
-  return bookDetail;
-}
-
-function refactorExistingAuthors(existingAuthorBody) {
-  let existingAuthors = existingAuthorBody;
-  if (typeof existingAuthors === 'string' && existingAuthors !== '') {
-    existingAuthors = existingAuthors.split();
-  }
-  return existingAuthors;
-}
-
 async function create(req, res) {
   const authorObjects = createNewAuthorDetails(req.body.authorName);
   const bookDetail = createBookDetail(req.body);
@@ -209,6 +162,53 @@ async function update(req, res) {
   } catch {
     res.render('error', { title: 'Something Went Wrong' });
   }
+}
+
+function createNewAuthorDetails(authorBody) {
+  const authorNames = authorBody.trim().split(/\s*,\s*/);
+  const authorObjects = [];
+
+  for (let author of authorNames) {
+    if (author === '') {
+      continue;
+    }
+    const authorDetail = {};
+    const authorName = author.split(' ');
+    authorDetail.firstName = authorName[0];
+    if (authorName.length > 1) {
+      authorDetail.lastName = authorName[authorName.length - 1];
+      let middleNames = [];
+      for (let i = 1; i < authorName.length - 1; i++) {
+        middleNames.push(authorName[i]);
+      }
+      if (middleNames.length > 0) {
+        authorDetail.middleName = middleNames.join(' ');
+      }
+    }
+    authorDetail.booksWritten = [];
+    authorObjects.push(authorDetail);
+  }
+
+  return authorObjects;
+}
+
+function createBookDetail(bookBody) {
+  const bookDetail = {};
+  bookDetail.title = bookBody.title;
+  bookDetail.genre = bookBody.genre;
+  bookDetail.publishYear = Number(bookBody.publishYear);
+  bookDetail.pageCount = Number(bookBody.pageCount);
+  bookDetail.author = [];
+
+  return bookDetail;
+}
+
+function refactorExistingAuthors(existingAuthorBody) {
+  let existingAuthors = existingAuthorBody;
+  if (typeof existingAuthors === 'string' && existingAuthors !== '') {
+    existingAuthors = existingAuthors.split();
+  }
+  return existingAuthors;
 }
 
 module.exports = { index, create, show, delete: deleteBook, edit, update };
