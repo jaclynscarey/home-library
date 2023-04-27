@@ -7,6 +7,10 @@ h1 {
   /* font-size: 5svw; */
 }
 
+h2 {
+  text-align: center;
+}
+
 div.title-div {
   display: flex;
   margin: 10px 0;
@@ -146,6 +150,11 @@ article.card {
   transition: 0.3s;
   border-radius: 20px;
   background-color: rgba(255, 255, 0, 0.264);
+  color: navy;
+}
+
+article.card a {
+  color: navy;
 }
 
 section.card-container article.book-index {
@@ -159,7 +168,7 @@ section.card-container article.author-index {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   flex-direction: column;
-  height: 10rem;
+  height: 9.2rem;
 }
 
 section.card-container article.author-index:hover {
@@ -168,9 +177,10 @@ section.card-container article.author-index:hover {
 
 article.card span.hide {
   position: absolute;
-  float: right;
-  margin-top: -11px;
-  color: gray;
+  margin-top: 145px;
+  margin-left: 80px;
+  color: rgb(228, 83, 83);
+  text-shadow: 1px 1px rgb(65, 65, 65);
 }
 
 section.card-container article.author-index:hover > span {
