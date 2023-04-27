@@ -1,11 +1,22 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
 <% user.booksRead.forEach(function(book) { %>
-    <div>
-        <a href="/books/<%= book.id %>"><%= book.title %></a>
-        <form action="/users/<%=book._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete from My Books</button>
-        </form>
-    </div>
+
+  <div>
+    <a href="/books/<%= book.id %>"><%= book.title %></a>
+
+    <% book.author.forEach(function(author, i) { %>
+      <% if (!author.middleName) { %>
+        <p><a href="/authors/<%= author._id %>"><%= author.firstName %> <%= author.lastName %></a></p>
+      <% } else { %>
+        <p><a href="/authors/<%= author._id %>"><%= author.firstName %> <%= author.middleName %> <%= author.lastName %></a></p>
+      <% } %>   
+    <% }) %>
+
+    <form action="/users/<%=book._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete from My Books</button>
+    </form>
+  </div>
+  
 <% }) %>
 <%- include('../partials/footer') %>
 
