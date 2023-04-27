@@ -1,7 +1,10 @@
-<%- include('../partials/head') %> <%- include('../partials/header') %>
+<%- include('../partials/head') %> 
+<%- include('../partials/header') %>
+
 <main>
+
+  <h2><%= b.title %></h2>
   <section>
-    <h3><%= b.title %></h3>
     <p>Author(s): 
       <% b.author.forEach(function(a, i) { %>
         <% if (i === b.author.length - 1) { %>
@@ -13,11 +16,15 @@
     <p>Genre: <%= b.genre[0].toUpperCase() + b.genre.substring(1) %></p>
     <p>Publication year: <%= b.publishYear %></p>
     <p>Page count: <%= b.pageCount %></p>
+
     <div>
       <% if (user && user.isAdmin) { %>
-      <a href="/books/<%= b._id %>/edit">Edit Book</a>
+      <form action="/books/<%= b._id %>/edit" method="GET">
+        <button type="submit">Edit Book</button>
+      </form>
       <% } %>
     </div>
+
     <div>
       <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
       <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
@@ -29,6 +36,7 @@
       </form>
       <% }} %>
     </div>
+
     <div>
       <% if (user && user.isAdmin) { %>
       <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
@@ -36,6 +44,7 @@
       </form>
       <% } %>
     </div>
+
   </section>
 </main>
 <%- include('../partials/footer') %>

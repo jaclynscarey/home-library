@@ -98,7 +98,7 @@ main {
 
 section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   max-width: 73rem;
   height: auto;
   margin: 1rem auto;
@@ -107,6 +107,7 @@ section {
 .card-container {
   justify-content: center;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 
 article {
