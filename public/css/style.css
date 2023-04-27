@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@400;500;600;700&display=swap');
 
+h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+  /* font-size: 5svw; */
+}
+
+div.title-div {
+  display: flex;
+  margin: 10px 0;
+}
+
 #header-worm {
-  height: 8svw;
-  width: auto;
-  align-self: center;
-  margin: 0 40px;
+  max-height: 80px;
+  /* width: auto; */
+  /* align-self: center; */
+  margin: 0 20px;
 }
 
 #abc-blocks {
@@ -13,10 +24,6 @@
   align-self: flex-end;
   align-items: flex-end;
   margin-right: 3rem;
-}
-
-div.title-div {
-  display: flex;
 }
 
 nav {
@@ -173,12 +180,6 @@ section.card-container article.author-index:hover > span {
 
 article.card:hover {
   box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 500;
-  font-size: 5svw;
 }
 
 h3 {
