@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@400;500;600;700&display=swap');
 
+h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+  /* font-size: 5svw; */
+}
+
+div.title-div {
+  display: flex;
+  margin: 10px 0;
+}
+
 #header-worm {
-  height: 8svw;
-  width: auto;
-  align-self: center;
-  margin: 0 40px;
+  max-height: 80px;
+  /* width: auto; */
+  /* align-self: center; */
+  margin: 0 20px;
 }
 
 #abc-blocks {
@@ -25,14 +36,6 @@ nav {
   box-shadow: 2px black;
 }
 
-div.title-div {
-  display: flex;
-}
-
-div.title-div {
-  display: flex;
-}
-
 nav > ul {
   display: flex;
   justify-content: space-around;
@@ -47,14 +50,14 @@ nav > ul > li {
   list-style-type: none;
   font-family: 'Fredoka', sans-serif;
   font-weight: 600;
-  font-size: 3.4svw;
-  /* margin: auto 1rem; */
+  /* Target with media queries later */
+  font-size: 1.5rem;
 }
 
 nav > ul > li > a {
   color: black;
   text-decoration: none;
-  padding: 1.5svw;
+  padding: 1vmin;
   border-radius: 8px;
   transition: 0.2s;
 }
@@ -141,12 +144,6 @@ section.card-container article.card {
 
 section.card-container article.card:hover {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 500;
-  font-size: 5svw;
 }
 
 button {
