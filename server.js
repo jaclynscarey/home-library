@@ -42,7 +42,7 @@ app.use('/', indexRoutes);
 app.use('/books', bookRoutes);
 app.use('/authors', authorRoutes);
 app.use('/users', userRoutes);
-app.user('/', reviewsRoutes);
+app.use('/', reviewsRoutes);
 
 app.use('*', function (req, res) {
   res.render('404', { title: '404 - Page Not Found' });
