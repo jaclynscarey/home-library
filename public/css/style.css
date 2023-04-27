@@ -25,6 +25,20 @@ nav > ul > li > a:hover {
   text-shadow: 1px 1px 2px black, 0 0 25px rgb(119, 255, 119), 0 0 5px darkgreen;
 }
 
+h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+  font-size: 2.3rem;
+}
+
+.login {
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}
+
 /* section {
   display: flex;
   flex-direction: row;
@@ -50,16 +64,17 @@ section.card-container article.card {
   overflow: auto;
 }
 
-h1 {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 500;
-  font-size: 2.3rem;
+button {
+  color: white;
+  background-color: darkorange;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 8px;
+  border: 1px solid darkgoldenrod;
+  transition: 0.2s;
 }
 
-.login {
-  height: 34px;
-}
-
-.login img {
-  height: 30px;
+button:hover {
+  cursor: pointer;
+  background-color: rgb(179, 98, 0);
 }
