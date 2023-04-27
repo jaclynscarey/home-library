@@ -183,7 +183,8 @@ a.link-btn:hover {
   background-color: rgb(179, 98, 0);
 }
 
-form#addForm {
+form#addForm,
+form#editForm {
   max-width: 80vmin;
   margin: 0 auto 30px;
   color: white;
@@ -194,14 +195,16 @@ form#addForm {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
-form#addForm input {
+form#addForm input,
+form#editForm input {
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
   line-height: 1.4em;
 }
 
-form#addForm select {
+form#addForm select,
+form#editForm select {
   padding: 10px 20px;
   margin: 10px 5px;
   border: 1px solid black;
