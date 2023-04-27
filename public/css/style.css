@@ -41,6 +41,7 @@ nav > ul {
 
 a {
   text-decoration: none;
+  color: navy;
 }
 
 nav > ul > li {
@@ -132,7 +133,6 @@ section.card-container {
 }
 
 article.card {
-  /* border: 0.1rem solid black; */
   margin: 0.5rem;
   padding: 15px;
   text-align: center;
@@ -143,7 +143,7 @@ article.card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 20px;
-  background-color: ;
+  background-color: rgba(255, 255, 0, 0.264);
 }
 
 section.card-container article.book-index {
@@ -151,6 +151,29 @@ section.card-container article.book-index {
   grid-template-rows: 2fr 2fr 2fr 1fr 1fr;
   flex-direction: column;
   height: 25rem;
+}
+
+section.card-container article.author-index {
+  display: grid;
+  grid-template-rows: 1fr 1fr .75fr;
+  flex-direction: column;
+  height: 10rem;
+}
+
+section.card-container article.author-index:hover {
+  height: max-content;  
+}
+
+article.card span.hide {
+  position: absolute;
+  top: 0;
+  float: right;
+  /* position: relative;
+  bottom: 18px;   */
+}
+
+section.card-container article.author-index:hover > span {
+  display: none;
 }
 
 article.card:hover {
@@ -163,6 +186,10 @@ h1 {
   font-size: 5svw;
 }
 
+h3 {
+  margin: 10px auto;
+}
+
 button {
   color: white;
   background-color: darkorange;
@@ -171,10 +198,6 @@ button {
   border-radius: 8px;
   border: 1px solid darkgoldenrod;
   transition: 0.2s;
-}
-
-article.book-index button {
-
 }
 
 button:hover {
