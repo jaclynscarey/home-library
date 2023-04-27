@@ -41,6 +41,9 @@ app.use('/', indexRoutes);
 app.use('/books', bookRoutes);
 app.use('/authors', authorRoutes);
 app.use('/users', userRoutes);
+app.use('*', function (req, res) {
+  res.render('404', { title: '404 - Page Not Found'});
+});
 
 const port = 3000;
 
