@@ -5,23 +5,25 @@
 
   <h2><%= b.title %></h2>
   <section>
-    <p>Author(s): 
-      <% b.author.forEach(function(a, i) { %>
-        <% if (i === b.author.length - 1) { %>
-          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>
-        <% } else { %>
-          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>,
-        <% } }) %>
+    <h3><%= b.title %></h3>
+    <p>
+      Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
+      b.author.length - 1) { %>
+      <a href="/authors/<%= a._id %>"
+        ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
+      >
+      <% } else { %>
+      <a href="/authors/<%= a._id %>"
+        ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
+      >, <% } }) %>
     </p>
     <p>Genre: <%= b.genre[0].toUpperCase() + b.genre.substring(1) %></p>
     <p>Publication year: <%= b.publishYear %></p>
     <p>Page count: <%= b.pageCount %></p>
 
-    <div>
+    <div class="link-btn-container">
       <% if (user && user.isAdmin) { %>
-      <form action="/books/<%= b._id %>/edit" method="GET">
-        <button type="submit">Edit Book</button>
-      </form>
+      <a href="/books/<%= b._id %>/edit" class="link-btn">Edit Book</a>
       <% } %>
     </div>
 

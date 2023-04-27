@@ -1,5 +1,5 @@
 function home(req, res) {
-  res.render('index', { title: 'Little Book Worms' });
+  res.render('index', { title: 'Little Bookworms' });
 }
 
 module.exports = { home };

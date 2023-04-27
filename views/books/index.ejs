@@ -1,17 +1,17 @@
-<%- include('../partials/head') %>
-<%- include('../partials/header') %>
+<%- include('../partials/head') %> <%- include('../partials/header') %>
 
 <main>
-
   <% if (user && user.isAdmin) { %>
   <h2>Add a book</h2>
   <section>
-    <form action="/books" method="POST">
+    <form action="/books" method="POST" id="addForm">
       <label>
         Title:
-        <input type="text" name="title" required /></label><br />
+        <input type="text" name="title" required /></label
+      ><br />
       <label>
-        Select author(s) if they exist (select multiple by holding CTRL and clicking):
+        Select author(s) if they exist (select multiple by holding CTRL and
+        clicking): <br />
         <select name="existingAuthors" multiple>
           <option value=""></option>
           <% authors.forEach(function (a) { %>
@@ -19,40 +19,46 @@
             <%= a.firstName %> <%= a.middleName %> <%= a.lastName %>
           </option>
           <% }) %>
-        </select></label><br />
+        </select></label
+      ><br />
       <label>
         Input new author(s) (separate by commas):
-        <input type="text" name="authorName" /></label><br />
+        <input type="text" name="authorName" /></label
+      ><br />
       <label>
         Genre:
-        <input type="text" name="genre" /></label><br />
+        <input type="text" name="genre" /></label
+      ><br />
       <label>
         Publish year:
-        <input type="number" name="publishYear" /></label><br />
+        <input type="number" name="publishYear" /></label
+      ><br />
       <label>
         Page count:
-        <input type="number" name="pageCount" min="1" /></label><br />
+        <input type="number" name="pageCount" min="1" /></label
+      ><br />
       <button type="submit">Add book to Library</button>
     </form>
   </section>
   <% } %>
-  
-  <h2>Current Collection</h2>
 
   <section class="card-container">
     <% books.forEach(function (b) { %>
-    <article>
+    <article class="card">
       <h3><a href="/books/<%= b._id %>"><%= b.title %></a></h3>
-  
-      <p>Author(s): 
-        <% b.author.forEach(function(a, i) { %>
-          <% if (i === b.author.length - 1) { %>
-            <a href="/authors/<%= a._id %>/"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>
-          <% } else { %>
-            <a href="/authors/<%= a._id %>/"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>, 
-        <% } }) %>
+
+      <p>
+        Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
+        b.author.length - 1) { %>
+        <a href="/authors/<%= a._id %>/"
+          ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
+        >
+        <% } else { %>
+        <a href="/authors/<%= a._id %>/"
+          ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
+        >, <% } }) %>
       </p>
-  
+
       <div>
         <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
         <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
@@ -64,7 +70,7 @@
         </form>
         <% }} %>
       </div>
-  
+
       <div>
         <% if (user && user.isAdmin) { %>
         <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
