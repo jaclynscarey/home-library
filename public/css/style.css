@@ -287,3 +287,14 @@ p.stock-book-container {
   justify-content: center;
   align-items: center;
 }
+
+.pfp-container {
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.pfp {
+  max-width: 100%;
+}

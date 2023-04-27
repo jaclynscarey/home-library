@@ -8,6 +8,7 @@ const indexRoutes = require('./routes/index');
 const bookRoutes = require('./routes/books');
 const authorRoutes = require('./routes/authors');
 const userRoutes = require('./routes/users');
+const reviewsRoutes = require('./routes/reviews');
 
 require('dotenv').config();
 require('./config/database');
@@ -41,8 +42,10 @@ app.use('/', indexRoutes);
 app.use('/books', bookRoutes);
 app.use('/authors', authorRoutes);
 app.use('/users', userRoutes);
+app.use('/', reviewsRoutes);
+
 app.use('*', function (req, res) {
-  res.render('404', { title: '404 - Page Not Found'});
+  res.render('404', { title: '404 - Page Not Found' });
 });
 
 const port = 3000;

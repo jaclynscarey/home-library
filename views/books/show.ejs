@@ -1,8 +1,6 @@
-<%- include('../partials/head') %> 
-<%- include('../partials/header') %>
+<%- include('../partials/head') %> <%- include('../partials/header') %>
 
 <main>
-
   <h2><%= b.title %></h2>
   <section>
     <h3><%= b.title %></h3>
@@ -20,15 +18,14 @@
     <p>Genre: <%= b.genre[0].toUpperCase() + b.genre.substring(1) %></p>
     <p>Publication year: <%= b.publishYear %></p>
     <p>Page count: <%= b.pageCount %></p>
-
+  </section>
+  <section>
+    <% if (user && user.isAdmin) { %>
     <div class="link-btn-container">
-      <% if (user && user.isAdmin) { %>
       <a href="/books/<%= b._id %>/edit" class="link-btn">Edit Book</a>
-      <% } %>
     </div>
-
+    <% } %> <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
     <div>
-      <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
       <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete from My Books</button>
       </form>
@@ -36,17 +33,61 @@
       <form action="/users/<%= b._id %>?_method=PUT" method="POST">
         <button type="submit">Add to My Books</button>
       </form>
-      <% }} %>
     </div>
-
+    <% }} %> <% if (user && user.isAdmin) { %>
     <div>
-      <% if (user && user.isAdmin) { %>
       <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete from Library</button>
       </form>
-      <% } %>
     </div>
-
+    <% } %>
+  </section>
+  <section>
+    <h4>Reviews</h4>
+    <% if (user && user.booksRead.includes(b._id)) { %>
+    <div>
+      <form method="POST" action="/books/<%= b._id %>/reviews">
+        <label
+          >Your Review:<br />
+          <textarea name="content"></textarea>
+        </label>
+        <br />
+        <label
+          >Rating:
+          <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5" selected>5</option>
+          </select>
+        </label>
+        <br />
+        <button type="submit">Add Review</button>
+      </form>
+    </div>
+    <% } %>
+    <div>
+      <% if (b.reviews.length) { %> <% b.reviews.forEach(function(r) { %>
+      <article>
+        <p><%= r.user.username %></p>
+        <p class="pfp-container">
+          <img
+            src="<%= r.user.avatar %>"
+            alt="user profile picture"
+            onerror="this.onerror=null;this.src='/img/stockBook.png';"
+            referrerpolicy="no-referrer"
+            class="pfp"
+          />
+        </p>
+        <p><%= r.createdAt.toLocaleDateString() %></p>
+        <p><%= r.content %></p>
+        <p><%= r.rating %></p>
+      </article>
+      <% }); %> <% } else { %>
+      <p>No reviews yet. Add a review if you've read the book!</p>
+    </div>
+    <% } %>
   </section>
 </main>
 <%- include('../partials/footer') %>
