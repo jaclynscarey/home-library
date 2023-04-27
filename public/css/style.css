@@ -7,6 +7,10 @@ h1 {
   /* font-size: 5svw; */
 }
 
+h2 {
+  text-align: center;
+}
+
 div.title-div {
   display: flex;
   margin: 10px 0;
@@ -146,20 +150,30 @@ article.card {
   transition: 0.3s;
   border-radius: 20px;
   background-color: rgba(255, 255, 0, 0.264);
+  color: black;
 }
 
-section.card-container article.book-index {
+article.card a {
+  color: navy;
+}
+
+section.card-container article.book-index, article.user-show{
   display: grid;
   grid-template-rows: 2fr 2fr 2fr 1fr 1fr;
   flex-direction: column;
   height: 25rem;
 }
 
+section.card-container article.user-show {
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 20rem;
+}
+
 section.card-container article.author-index {
   display: grid;
-  grid-template-rows: 1fr 1fr 0.75fr;
+  grid-template-rows: 1fr 1fr 1fr;
   flex-direction: column;
-  height: 10rem;
+  height: 9.2rem;
 }
 
 section.card-container article.author-index:hover {
@@ -168,10 +182,10 @@ section.card-container article.author-index:hover {
 
 article.card span.hide {
   position: absolute;
-  top: 0;
-  float: right;
-  /* position: relative;
-  bottom: 18px;   */
+  margin-top: 145px;
+  margin-left: 80px;
+  color: rgb(228, 83, 83);
+  text-shadow: 1px 1px rgb(65, 65, 65);
 }
 
 section.card-container article.author-index:hover > span {
