@@ -11,9 +11,8 @@ async function index(req, res) {
   }
 }
 
-async function create(req, res) {
-  // new author names
-  const authorNames = req.body.authorName.trim().split(/\s*,\s*/);
+function createNewAuthorDetails(authorBody) {
+  const authorNames = authorBody.trim().split(/\s*,\s*/);
   const authorObjects = [];
 
   for (let author of authorNames) {
@@ -36,6 +35,12 @@ async function create(req, res) {
     authorDetail.booksWritten = [];
     authorObjects.push(authorDetail);
   }
+
+  return authorObjects;
+}
+
+async function create(req, res) {
+  const authorObjects = createNewAuthorDetails(req.body.authorName);
 
   // existing authors
   let existingAuthors = req.body.existingAuthors;
