@@ -2,7 +2,12 @@
 
 <main>
   <section class="card-container">
-    <% user.booksRead.forEach(function(book) { %>
+    <% if (user.booksRead.length === 0) { %>
+    <p>
+      Start filling up your collection by adding a book from the
+      <a href="/books">library</a>!
+    </p>
+    <% } else { %> <% user.booksRead.forEach(function(book) { %>
     <article class="card">
       <h3><a href="/books/<%= book.id %>"><%= book.title %></a></h3>
 
@@ -24,7 +29,7 @@
         <button type="submit">Delete from My Books</button>
       </form>
     </article>
-    <% }) %>
+    <% })} %>
   </section>
 </main>
 
