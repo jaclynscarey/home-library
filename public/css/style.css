@@ -166,7 +166,8 @@ a.link-btn:hover {
 form#addForm {
   max-width: 80vmin;
   margin: 0 auto 30px;
-  background-color: rgb(196, 196, 196);
+  color: white;
+  background-color: #4c8635;
   border-radius: 8px;
   padding: 20px;
   text-align: center;
