@@ -150,18 +150,23 @@ article.card {
   transition: 0.3s;
   border-radius: 20px;
   background-color: rgba(255, 255, 0, 0.264);
-  color: navy;
+  color: black;
 }
 
 article.card a {
   color: navy;
 }
 
-section.card-container article.book-index {
+section.card-container article.book-index, article.user-show{
   display: grid;
   grid-template-rows: 2fr 2fr 2fr 1fr 1fr;
   flex-direction: column;
   height: 25rem;
+}
+
+section.card-container article.user-show {
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 20rem;
 }
 
 section.card-container article.author-index {

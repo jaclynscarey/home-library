@@ -8,7 +8,7 @@
       <a href="/books">library</a>!
     </p>
     <% } else { %> <% user.booksRead.forEach(function(book) { %>
-    <article class="card">
+    <article class="card user-show">
       <h3><a href="/books/<%= book.id %>"><%= book.title %></a></h3>
 
       <p>
