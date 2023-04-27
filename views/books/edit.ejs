@@ -4,7 +4,9 @@
     action="/books/<%= b.id %>?_method=PUT"
     method="POST"
     autocomplete="OFF"
+    id="editForm"
   >
+    <h2>Edit book</h2>
     <label>
       Title:
       <input type="text" name="title" value="<%= b.title %>" required /> </label
@@ -46,7 +48,7 @@
         value="<%= b.pageCount %>"
       /> </label
     ><br />
-    <button type="submit">Update Book</button>
+    <button type="submit">Update book</button>
   </form>
 </main>
 <%- include('../partials/footer') %>
