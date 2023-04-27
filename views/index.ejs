@@ -1,11 +1,24 @@
-<%- include('./partials/head') %> 
-<%- include('./partials/header') %> 
+<%- include('./partials/head') %> <%- include('./partials/header') %>
 
 <main>
-    
-    
-    
+  <% if (user && user.isAdmin) { %>
+  <h2>Welcome back, Admin <%= user.username %>!</h2>
+  <p>Thanks for contributing to the little bookworms community.</p>
+  <% } else if (user) { %>
+  <h2>Welcome back, <%= user.username %>!</h2>
+  <p>
+    Browse the library and add books to your own collection, or check out the
+    authors in our library.
+  </p>
+  <% } else { %>
+  <h2>Welcome, guest!</h2>
+  <p>
+    Feel free to browse our library or
+    <a id="log-in" href="/auth/google">log in</a>
+    to start adding books to your own collection.
+  </p>
+  <% } %>
 </main>
 
-<img id="abc-blocks" src="/img/abc-blocks.png" alt="ABC Blocks">
+<img id="abc-blocks" src="/img/abc-blocks.png" alt="ABC Blocks" />
 <%-include('./partials/footer') %>
