@@ -258,3 +258,18 @@ p.stock-book-container {
 .stock-book {
   max-width: 100px;
 }
+
+.hidden {
+  display: none;
+}
+
+/* #form-btn {
+  margin: 0 auto;
+} */
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
