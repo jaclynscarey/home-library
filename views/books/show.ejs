@@ -2,10 +2,13 @@
 <main>
   <section>
     <h3><%= b.title %></h3>
-    <p>
-      Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
-      b.author.length - 1) { %> <%= a.firstName %> <%= a.lastName %> <% } else {
-      %> <%= a.firstName %> <%= a.lastName %>, <% } }) %>
+    <p>Author(s): 
+      <% b.author.forEach(function(a, i) { %>
+        <% if (i === b.author.length - 1) { %>
+          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>
+        <% } else { %>
+          <a href="/authors/<%= a._id %>"><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a>,
+        <% } }) %>
     </p>
     <p>Genre: <%= b.genre[0].toUpperCase() + b.genre.substring(1) %></p>
     <p>Publication year: <%= b.publishYear %></p>

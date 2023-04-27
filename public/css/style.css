@@ -5,6 +5,30 @@ body {
   font-family: 'Andika', sans-serif;
 }
 
+section {
+  display: flex;
+  flex-direction: row;
+  max-width: 73rem;
+  height: auto;
+  margin: 1rem auto;
+}
+
+.card-container {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+article {
+  border: .1rem solid black;
+  margin: .5rem;
+  padding: 1rem;
+  text-align: center;
+  word-wrap: normal;
+  width: 15rem;
+  height: 15rem;
+  overflow: scroll;
+}
+
 h1 {
   font-family: 'Fredoka', sans-serif;
   font-weight: 500;

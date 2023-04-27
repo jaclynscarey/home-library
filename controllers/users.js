@@ -1,9 +1,12 @@
-const userModel = require('../models/User');
-const bookModel = require('../models/Book');
-
 async function show(req, res) {
   try {
-    await req.user.populate('booksRead');
+    await req.user.populate({
+      path: 'booksRead',
+      populate: {
+        path: 'author',
+        model: 'Author',
+      },
+    });
 
     req.user.booksRead.sort(function (a, b) {
       if (a.title < b.title) {
