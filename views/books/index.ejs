@@ -2,11 +2,11 @@
 
 <main>
   <% if (user && user.isAdmin) { %>
-  <h2>Add a book</h2>
   <section>
     <form action="/books" method="POST" id="addForm">
+      <h2>Add a book</h2>
       <label>
-        Title:
+        Title:<br />
         <input type="text" name="title" required /></label
       ><br />
       <label>
@@ -22,19 +22,19 @@
         </select></label
       ><br />
       <label>
-        Input new author(s) (separate by commas):
+        Input new author(s) (separate by commas):<br />
         <input type="text" name="authorName" /></label
       ><br />
       <label>
-        Genre:
+        Genre:<br />
         <input type="text" name="genre" /></label
       ><br />
       <label>
-        Publish year:
+        Publish year:<br />
         <input type="number" name="publishYear" /></label
       ><br />
       <label>
-        Page count:
+        Page count:<br />
         <input type="number" name="pageCount" min="1" /></label
       ><br />
       <button type="submit">Add book to Library</button>
