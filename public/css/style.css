@@ -78,3 +78,22 @@ button:hover {
   cursor: pointer;
   background-color: rgb(179, 98, 0);
 }
+
+.link-btn-container {
+  margin: 16px 0;
+}
+
+a.link-btn {
+  padding: 8px;
+  color: white;
+  background-color: darkorange;
+  border-radius: 8px;
+  border: 1px solid darkgoldenrod;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+a.link-btn:hover {
+  cursor: pointer;
+  background-color: rgb(179, 98, 0);
+}
