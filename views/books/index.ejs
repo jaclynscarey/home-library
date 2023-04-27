@@ -4,14 +4,14 @@
   <% if (user && user.isAdmin) { %>
   <h2>Add a book</h2>
   <section>
-    <form action="/books" method="POST">
+    <form action="/books" method="POST" id="addForm">
       <label>
         Title:
         <input type="text" name="title" required /></label
       ><br />
       <label>
         Select author(s) if they exist (select multiple by holding CTRL and
-        clicking):
+        clicking): <br />
         <select name="existingAuthors" multiple>
           <option value=""></option>
           <% authors.forEach(function (a) { %>
