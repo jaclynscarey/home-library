@@ -30,6 +30,17 @@ div.title-div {
   margin-right: 3rem;
 }
 
+#kids {
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.43);
+}
+
+section.home-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 nav {
   /* display: flex;
   align-content: center; */
@@ -38,6 +49,7 @@ nav {
   background-color: yellow;
   /* align-items: center; */
   box-shadow: 2px black;
+  white-space: nowrap;
 }
 
 nav > ul {
@@ -56,6 +68,7 @@ nav > ul > li {
   font-weight: 600;
   /* Target with media queries later */
   font-size: 1.5rem;
+  
 }
 
 nav > ul > li > a {
