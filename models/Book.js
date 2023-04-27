@@ -2,6 +2,28 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+const reviewSchema = new Schema(
+  {
+    user: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+      },
+    ],
+    content: {
+      type: String,
+      required: true,
+    },
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+      default: 5,
+    },
+  },
+  { timestamps: true }
+);
+
 const bookSchema = new Schema(
   {
     title: {
@@ -23,6 +45,7 @@ const bookSchema = new Schema(
       type: Number,
       min: 1,
     },
+    reviews: [reviewSchema],
   },
   {
     timestamps: true,
