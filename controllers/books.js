@@ -117,6 +117,13 @@ async function update(req, res) {
 
   try {
     const book = await bookModel.findById(req.params.id).populate('author');
+    book.title = req.body.title;
+    book.genre = req.body.genre;
+    book.publishYear = Number(req.body.publishYear);
+    book.pageCount = Number(req.body.pageCount);
+    book.author = [];
+    await book.save();
+
     const savedAuthors = [];
 
     for (const author of book.author) {
