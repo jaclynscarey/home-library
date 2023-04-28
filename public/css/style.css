@@ -217,13 +217,12 @@ article.card a {
 section.card-container article.book-index {
   display: grid;
   grid-template-rows: 2fr 2fr 2fr 1fr 1fr;
-  flex-direction: column;
   height: 25rem;
 }
 
 section.card-container article.user-show {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 2fr 2fr 1fr 1fr;
   height: 20rem;
 }
 
