@@ -79,9 +79,9 @@
       </article>
       <% b.reviews.forEach(function(r) { %> <% total += r.rating %>
       <article class="review">
-        <% if (user._id.toString() === r.user[0]._id.toString()) { %>
+        <% if (user && user._id.toString() === r.user[0]._id.toString()) { %>
         <div id="delete-review">
-          <form action="/reviews/:id?_method=DELETE" method="POST">
+          <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
             <button type="submit">X</button>
           </form>
         </div>

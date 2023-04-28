@@ -14,7 +14,12 @@ async function create(req, res) {
 
 async function deleteReview(req, res) {
   try {
-    const book = await bookModel.findById(req.params.id);
+    const book = await bookModel.findOne({ 'reviews._id': req.params.id });
+    book.reviews.remove(req.params.id);
+    await book.save();
+    res.redirect('back');
+  } catch {
+    res.render('error', { title: 'Something Went Wrong' });
   }
 }
 
