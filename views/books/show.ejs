@@ -69,9 +69,17 @@
     </div>
     <% } %>
     <div>
-      <% if (b.reviews.length) { %> <% let total = 0 %> <%
-      b.reviews.forEach(function(r) { %> <% total += r.rating %>
+      <% if (b.reviews.length) { %> <% let total = 0 %>
+      <article class="reviewBar">
+        <p>Date</p>
+        <p>Name</p>
+        <p>Avatar</p>
+        <p>Review</p>
+        <p>Rating</p>
+      </article>
+      <% b.reviews.forEach(function(r) { %> <% total += r.rating %>
       <article class="review">
+        <p><%= r.createdAt.toLocaleDateString() %></p>
         <p><%= r.user[0].username %></p>
         <p class="pfp-container">
           <img
@@ -82,7 +90,6 @@
             class="pfp"
           />
         </p>
-        <p><%= r.createdAt.toLocaleDateString() %></p>
         <p><%= r.content %></p>
         <p><%= r.rating %></p>
       </article>
