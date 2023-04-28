@@ -156,11 +156,7 @@ body {
   flex-direction: column;
   font-family: 'Andika', sans-serif;
   height: 100vh;
-  background-color: lightblue;
-}
-
-main {
-  flex-grow: 3;
+  background-color: rgba(27, 118, 223, 0.39);
 }
 
 section {
