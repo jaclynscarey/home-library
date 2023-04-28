@@ -23,6 +23,37 @@ div.title-div {
   margin: 0 20px;
 }
 
+img#header-worm {
+  max-height: 80px;
+  margin: 0 20px;
+  position: relative;
+  animation-name: worm;
+  animation-duration: 6s;
+}
+
+@keyframes worm {
+  0% {
+    left: 1800px;
+    top: 0px;
+  }
+  50% {
+    left: 400px;
+    top: 0px;
+  }
+  65% {
+    left: 400px;
+    top: 70px;
+  }
+  80% {
+    left: 0px;
+    top: 70px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
 #kids {
   align-self: center;
   max-width: 500px;
@@ -50,7 +81,7 @@ nav {
   padding: 0.6vmin;
   background: linear-gradient(
     109.6deg,
-    rgb(255, 219, 47) 11.2%,
+    rgb(249, 198, 66) 11.2%,
     rgb(255, 240, 28) 100.2%
   );
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
