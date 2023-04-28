@@ -195,7 +195,7 @@ article.card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
   transition: 0.3s;
   border-radius: 20px;
-  background-color: purple;
+  background-color: rgb(128, 13, 128);
   color: white;
   font-weight: bold;
 }
@@ -204,7 +204,6 @@ section article.card {
   display: flex;
   flex-direction: column;
   height: 7.5rem;
-  align-content: center;
   justify-content: center;
 }
 
