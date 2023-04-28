@@ -80,8 +80,6 @@
       <% b.reviews.forEach(function(r) { %> <% total += r.rating %>
       <section class="review-section">
         <article class="review">
-          <% if (user._id.toString() === r.user[0]._id.toString()) { %>        
-          <% } %>
           <p><%= r.createdAt.toLocaleDateString() %></p>
           <p><%= r.user[0].username %></p>
           <p class="pfp-container">
@@ -96,11 +94,13 @@
           <p><%= r.content %></p>
           <p><%= r.rating %></p>
         </article>
+        <% if (user && user._id.toString() === r.user[0]._id.toString()) { %>
         <div id="delete-review">
-          <form>
+          <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
             <button type="submit">X</button>
           </form>
         </div>
+        <% } %>
       </section>
       <% }); %> Average rating:
       <strong><%= (total / b.reviews.length).toFixed(1) %></strong>
