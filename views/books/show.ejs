@@ -1,7 +1,7 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
 
-<main  class="book-show">
-  <h2><%= b.title %></h2>
+<main class="book-show">
+  <h2><em><%= b.title %></em></h2>
   <section class="book-info">
     <p>
       Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
@@ -26,7 +26,9 @@
     <% } %> <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
     <div>
       <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
-        <button type="submit" onclick="history.go(0)">Delete from My Books</button>
+        <button type="submit" onclick="history.go(0)">
+          Delete from My Books
+        </button>
       </form>
       <% } else { %>
       <form action="/users/<%= b._id %>?_method=PUT" method="POST">
@@ -67,8 +69,24 @@
     </div>
     <% } %>
     <div>
-      <% if (b.reviews.length) { %> <% b.reviews.forEach(function(r) { %>
+      <% if (b.reviews.length) { %> <% let total = 0 %>
+      <article class="reviewBar">
+        <p>Date</p>
+        <p>Name</p>
+        <p>Avatar</p>
+        <p>Review</p>
+        <p>Rating</p>
+      </article>
+      <% b.reviews.forEach(function(r) { %> <% total += r.rating %>
       <article class="review">
+        <% if (user._id.toString() === r.user[0]._id.toString()) { %>
+        <div id="delete-review">
+          <form>
+            <button type="submit">X</button>
+          </form>
+        </div>
+        <% } %>
+        <p><%= r.createdAt.toLocaleDateString() %></p>
         <p><%= r.user[0].username %></p>
         <p class="pfp-container">
           <img
@@ -79,11 +97,12 @@
             class="pfp"
           />
         </p>
-        <p><%= r.createdAt.toLocaleDateString() %></p>
         <p><%= r.content %></p>
         <p><%= r.rating %></p>
       </article>
-      <% }); %> <% } else { %>
+      <% }); %> Average rating:
+      <strong><%= (total / b.reviews.length).toFixed(1) %></strong>
+      <% } else { %>
       <p>No reviews yet. Add a review if you've read the book!</p>
     </div>
     <% } %>

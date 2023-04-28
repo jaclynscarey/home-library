@@ -2,6 +2,10 @@
 
 <main>
   <h2>Library</h2>
+  <p class="center-text">Browse the entire collection of books!</p>
+  <p class="center-text">
+    Click on a book title or an author's name to see more details.
+  </p>
   <% if (user && user.isAdmin) { %>
   <div class="btn-container">
     <button id="form-btn">Show Add Book Form</button>
@@ -85,7 +89,9 @@
       <div>
         <% if (user && user.isAdmin) { %>
         <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
-          <button type="submit" onclick="history.go(0)">Delete from Library</button>
+          <button type="submit" onclick="history.go(0)">
+            Delete from Library
+          </button>
         </form>
         <% } %>
       </div>
