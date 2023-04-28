@@ -12,4 +12,15 @@ async function create(req, res) {
   }
 }
 
-module.exports = { create };
+async function deleteReview(req, res) {
+  try {
+    const book = await bookModel.findOne({ 'reviews._id': req.params.id });
+    book.reviews.remove(req.params.id);
+    await book.save();
+    res.redirect('back');
+  } catch {
+    res.render('error', { title: 'Something Went Wrong' });
+  }
+}
+
+module.exports = { create, delete: deleteReview };
