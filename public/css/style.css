@@ -214,8 +214,7 @@ article.card a {
   color: yellow;
 }
 
-section.card-container article.book-index,
-article.user-show {
+section.card-container article.book-index {
   display: grid;
   grid-template-rows: 2fr 2fr 2fr 1fr 1fr;
   flex-direction: column;
@@ -223,6 +222,7 @@ article.user-show {
 }
 
 section.card-container article.user-show {
+  display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   height: 20rem;
 }
