@@ -348,12 +348,11 @@ p.stock-book-container {
 .pfp-container {
   max-width: 80px;
   max-height: 80px;
-  border-radius: 50%;
-  background-color: green;
 }
 
 .pfp {
-  max-width: 100%;
+  max-width: 90%;
+  border-radius: 100%;
 }
 
 main.book-show {
