@@ -174,8 +174,10 @@ article.card {
 }
 
 section article.card {
-  height: 7.5rem;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  max-height: 7.5rem;
+  justify-content: center;
 }
 
 article.card:hover {
