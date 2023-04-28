@@ -18,8 +18,6 @@ div.title-div {
 
 #header-worm {
   max-height: 80px;
-  /* width: auto; */
-  /* align-self: center; */
   margin: 0 20px;
 }
 
@@ -102,7 +100,6 @@ nav > ul > li {
   list-style-type: none;
   font-family: 'Fredoka', sans-serif;
   font-weight: 600;
-  /* Target with media queries later */
   font-size: 1.5rem;
 }
 
@@ -120,19 +117,19 @@ nav > ul > li > a:hover {
 
 #home:hover {
   color: white;
-  background-color: red;
+  background-color: #cd2026;
   height: 9svw;
 }
 
 #library:hover {
   color: white;
-  background-color: blue;
+  background-color: #0071bc;
   height: 9svw;
 }
 
 #authors:hover {
   color: white;
-  background-color: green;
+  background-color: #2e8540;
   height: 9svw;
 }
 
@@ -144,7 +141,7 @@ nav > ul > li > a:hover {
 
 #log-out:hover {
   color: white;
-  background-color: orange;
+  background-color: rgb(218, 141, 0);
   height: 9svw;
 }
 
