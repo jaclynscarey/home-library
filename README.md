@@ -9,7 +9,7 @@
     <li><a href="#background">Background</a></li>
     <li><a href="#screenshots">Screenshots</a></li>
     <li><a href="#technologies-used">Technologies Used</li>
-    <li><a href="#getting-started">Play the Game</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#next-steps">Next Steps</a></li>
   </ol>
 </details>
