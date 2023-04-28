@@ -176,7 +176,8 @@ article.card {
 section article.card {
   display: flex;
   flex-direction: column;
-  max-height: 7.5rem;
+  height: 7.5rem;
+  align-content: center;
   justify-content: center;
 }
 
