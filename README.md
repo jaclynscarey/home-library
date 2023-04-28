@@ -26,6 +26,14 @@ Authenticated users can also leave reviews of books they've read and see others'
 
 ## Screenshots
 
+![Screenshot of the home page for a guest user.](public/img/home.png)
+![Screenshot of the library.](public/img/library.png)
+![Screenshot of the authors.](public/img/authors.png)
+![Screenshot of a book's details page.](public/img/book-detail.png)
+![Screenshot of an author's details page.](public/img/author-detail.png)
+![Screenshot of a form for editing a book's details.](public/img/edit-book.png)
+![Screenshot of an example 'My Books' page for an authenticated user.](public/img/my-books.png)
+
 ## Technologies Used
 
 - JavaScript
