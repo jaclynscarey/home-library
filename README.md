@@ -44,4 +44,4 @@ Authenticated users can also leave reviews of books they've read and see others'
 - Allow user to search for the books. (For now, you can use `CTRL + F`, for example.)
 - Allow admin user to upload a cover picture for the book when adding to library.
 
-Feel free to submit a pull request if you would like to suggest any changes.
+Feel free to submit a pull request if you would like to suggest any changes!
