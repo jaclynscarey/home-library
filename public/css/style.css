@@ -6,7 +6,7 @@ body {
   flex-direction: column;
   font-family: 'Andika', sans-serif;
   height: 100vh;
-  background-color: rgba(27, 118, 223, 0.39);
+  background-color: rgba(114, 211, 243, 0.473);
 }
 
 main {
@@ -24,7 +24,6 @@ section {
 h1 {
   font-family: 'Fredoka', sans-serif;
   font-weight: 500;
-  /* font-size: 5svw; */
 }
 
 h2 {
@@ -425,4 +424,8 @@ article.review {
   align-items: center;
   margin: 30px auto;
   padding: 5px;
+}
+
+.center-text {
+  text-align: center;
 }
