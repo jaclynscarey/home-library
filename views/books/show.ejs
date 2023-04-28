@@ -1,6 +1,6 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
 
-<main  class="book-show">
+<main class="book-show">
   <h2><%= b.title %></h2>
   <section class="book-info">
     <p>
@@ -26,7 +26,9 @@
     <% } %> <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
     <div>
       <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
-        <button type="submit" onclick="history.go(0)">Delete from My Books</button>
+        <button type="submit" onclick="history.go(0)">
+          Delete from My Books
+        </button>
       </form>
       <% } else { %>
       <form action="/users/<%= b._id %>?_method=PUT" method="POST">
@@ -67,7 +69,8 @@
     </div>
     <% } %>
     <div>
-      <% if (b.reviews.length) { %> <% b.reviews.forEach(function(r) { %>
+      <% if (b.reviews.length) { %> <% let total = 0 %> <%
+      b.reviews.forEach(function(r) { %> <% total += r.rating %>
       <article class="review">
         <p><%= r.user[0].username %></p>
         <p class="pfp-container">
@@ -83,7 +86,9 @@
         <p><%= r.content %></p>
         <p><%= r.rating %></p>
       </article>
-      <% }); %> <% } else { %>
+      <% }); %> Average rating:
+      <strong><%= (total / b.reviews.length).toFixed(1) %></strong>
+      <% } else { %>
       <p>No reviews yet. Add a review if you've read the book!</p>
     </div>
     <% } %>
