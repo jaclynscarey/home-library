@@ -1,9 +1,8 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
 
-<main>
+<main  class="book-show">
   <h2><%= b.title %></h2>
-  <section>
-    <h3><%= b.title %></h3>
+  <section class="book-info">
     <p>
       Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
       b.author.length - 1) { %>
@@ -27,11 +26,11 @@
     <% } %> <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
     <div>
       <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete from My Books</button>
+        <button type="submit" onclick="history.go(0)">Delete from My Books</button>
       </form>
       <% } else { %>
       <form action="/users/<%= b._id %>?_method=PUT" method="POST">
-        <button type="submit">Add to My Books</button>
+        <button type="submit" onclick="history.go(0)">Add to My Books</button>
       </form>
     </div>
     <% }} %> <% if (user && user.isAdmin) { %>
@@ -42,10 +41,10 @@
     </div>
     <% } %>
   </section>
-  <section>
-    <h4>Reviews</h4>
+  <section class="book-review">
+    <h2>Reviews</h2>
     <% if (user && user.booksRead.includes(b._id)) { %>
-    <div>
+    <div class="review-form">
       <form method="POST" action="/books/<%= b._id %>/reviews">
         <label
           >Your Review:<br />
@@ -69,7 +68,7 @@
     <% } %>
     <div>
       <% if (b.reviews.length) { %> <% b.reviews.forEach(function(r) { %>
-      <article>
+      <article class="review">
         <p><%= r.user[0].username %></p>
         <p class="pfp-container">
           <img

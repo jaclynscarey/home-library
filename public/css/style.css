@@ -23,22 +23,27 @@ div.title-div {
   margin: 0 20px;
 }
 
-#abc-blocks {
-  width: 20rem;
-  align-self: flex-end;
-  align-items: flex-end;
-  margin-right: 3rem;
-}
-
 #kids {
+  align-self: center;
   max-width: 500px;
   border-radius: 20px;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.43);
 }
 
-section.home-section {
+main.home-main {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+footer {
+  text-align: center;
+}
+
+.home-p {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 nav {
@@ -48,7 +53,7 @@ nav {
   padding: 0.6vmin;
   background-color: yellow;
   /* align-items: center; */
-  box-shadow: 2px black;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
   white-space: nowrap;
 }
 
@@ -124,6 +129,7 @@ body {
   flex-direction: column;
   font-family: 'Andika', sans-serif;
   height: 100vh;
+  background-color: lightblue;
 }
 
 main {
@@ -167,8 +173,16 @@ article.card {
   font-weight: bold;
 }
 
+section article.card {
+  display: flex;
+  flex-direction: column;
+  height: 7.5rem;
+  align-content: center;
+  justify-content: center;
+}
+
 article.card:hover {
-  box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 25px 0 rgba(0, 0, 0, 0.6);
 }
 
 article.card a {
@@ -192,7 +206,12 @@ section.card-container article.author-index {
   grid-template-rows: 1fr 1fr 1fr;
   flex-direction: column;
   height: 9.2rem;
-  background-color: red;
+  background-color: lightgreen;
+  color: black;
+}
+
+article.author-index a {
+  color: blue;
 }
 
 section.card-container article.author-index:hover {
@@ -313,4 +332,72 @@ p.stock-book-container {
 
 .pfp {
   max-width: 100%;
+}
+
+main.book-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+section.book-info, section.book-review, div.review-form, article.review {
+  box-shadow: 2.5px 5px 5px 2.5px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  font-weight: bolder;
+}
+
+section.book-info {
+  background-color: yellow;
+  border: 7px solid black;
+  width: 500px;
+  padding: 30px 20px;
+  font-size: 1.25rem;
+}
+
+section.book-info a {
+  color: navy;
+}
+
+section.book-info a:hover {
+  color: red;
+}
+
+.book-review {
+  background-color: yellow;
+  width: 500px;
+  padding: 20px 20px 40px 20px;
+}
+
+section.book-review > h2 {
+  margin-bottom: 50px;
+}
+
+div.review-form {
+  display: flex;
+  justify-content: center;
+  background-color: blue;
+  height: 275px;
+  color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+div.review-form button {
+  margin-top: 20px;
+}
+
+textarea {
+  width: 350px;
+  height: 100px;
+  margin: 20px auto;
+}
+
+article.review {
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-columns: 3fr 2fr 3fr 4fr 1fr;
+  align-items: center;
+  margin: 30px auto;
+  padding: 5px;
 }
