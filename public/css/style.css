@@ -73,7 +73,6 @@ nav > ul > li {
   font-weight: 600;
   /* Target with media queries later */
   font-size: 1.5rem;
-  
 }
 
 nav > ul > li > a {
@@ -189,7 +188,8 @@ article.card a {
   color: yellow;
 }
 
-section.card-container article.book-index, article.user-show{
+section.card-container article.book-index,
+article.user-show {
   display: grid;
   grid-template-rows: 2fr 2fr 2fr 1fr 1fr;
   flex-direction: column;
@@ -229,7 +229,6 @@ article.card span.hide {
 section.card-container article.author-index:hover > span {
   display: none;
 }
-
 
 h3 {
   margin: 10px auto;
@@ -341,7 +340,10 @@ main.book-show {
   text-align: center;
 }
 
-section.book-info, section.book-review, div.review-form, article.review {
+section.book-info,
+section.book-review,
+div.review-form,
+article.review {
   box-shadow: 2.5px 5px 5px 2.5px rgba(0, 0, 0, 0.4);
   border-radius: 20px;
   font-weight: bolder;
