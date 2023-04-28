@@ -12,4 +12,10 @@ async function create(req, res) {
   }
 }
 
-module.exports = { create };
+async function deleteReview(req, res) {
+  try {
+    const book = await bookModel.findById(req.params.id);
+  }
+}
+
+module.exports = { create, delete: deleteReview };

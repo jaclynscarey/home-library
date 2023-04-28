@@ -81,10 +81,7 @@
       <article class="review">
         <% if (user._id.toString() === r.user[0]._id.toString()) { %>
         <div id="delete-review">
-          <form
-            action="/books/<%= b._id %>/reviews?_method=DELETE"
-            method="POST"
-          >
+          <form action="/reviews/:id?_method=DELETE" method="POST">
             <button type="submit">X</button>
           </form>
         </div>
