@@ -1,28 +1,28 @@
-<%- include('../partials/head') %>
-<%- include('../partials/header') %>
+<%- include('../partials/head') %> <%- include('../partials/header') %>
 
 <main>
-  <h2>Books by: <%= title %></h2>
+  <h2>Books by <%= title %></h2>
   <section class="card-container">
     <% author.booksWritten.forEach((b, i) => { %>
-      <article class="card book">
-        <p><a href="/books/<%= b._id %>"><%= b.title %></a></p>
+    <article class="card book">
+      <p><a href="/books/<%= b._id %>"><%= b.title %></a></p>
 
-        <div>
-          <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
-          <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
-            <button type="submit" onclick="history.go(0)">Delete from My Books</button>
-          </form>
-          <% } else { %>
-          <form action="/users/<%= b._id %>?_method=PUT" method="POST">
-            <button type="submit" onclick="history.go(0)">Add to My Books</button>
-          </form>
-          <% }} %>
-        </div>
-      </article>
-      <% }) %>
+      <div>
+        <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
+        <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
+          <button type="submit" onclick="history.go(0)">
+            Delete from My Books
+          </button>
+        </form>
+        <% } else { %>
+        <form action="/users/<%= b._id %>?_method=PUT" method="POST">
+          <button type="submit" onclick="history.go(0)">Add to My Books</button>
+        </form>
+        <% }} %>
+      </div>
+    </article>
+    <% }) %>
   </section>
- 
 </main>
 
 <%- include('../partials/footer') %>
