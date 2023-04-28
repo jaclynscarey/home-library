@@ -47,12 +47,12 @@ footer {
 }
 
 nav {
-  /* display: flex;
-  align-content: center; */
-  /* width: 100vw; */
   padding: 0.6vmin;
-  background-color: yellow;
-  /* align-items: center; */
+  background: linear-gradient(
+    109.6deg,
+    rgb(255, 219, 47) 11.2%,
+    rgb(255, 240, 28) 100.2%
+  );
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
   white-space: nowrap;
 }
