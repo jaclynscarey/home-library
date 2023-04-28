@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-<h1 align="center">Little Bookworms - Home Library</h1>
+<h1 align="center"><a href="https://little-bookworms.herokuapp.com/">Little Bookworms - Home Library</a></h1>
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -44,6 +44,7 @@ Authenticated users can also leave reviews of books they've read and see others'
 
 ## Getting Started
 
+- [Website](https://little-bookworms.herokuapp.com/)
 - [Trello board](https://trello.com/b/dAFx0NL1/library-project)
 
 ## Next Steps
