@@ -1,7 +1,7 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
 
 <main class="book-show">
-  <h2><%= b.title %></h2>
+  <h2><em><%= b.title %></em></h2>
   <section class="book-info">
     <p>
       Author(s): <% b.author.forEach(function(a, i) { %> <% if (i ===
