@@ -9,6 +9,10 @@ body {
   background-color: rgba(27, 118, 223, 0.39);
 }
 
+main {
+  flex-grow: 3;
+}
+
 section {
   display: flex;
   flex-direction: column;
