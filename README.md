@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-<h1 align="center"><a href="https://little-bookworms.herokuapp.com/">Little Bookworms - Home Library</a></h1>
+<h1 align="center"><a href="https://little-bookworms.herokuapp.com/" target="_blank">Little Bookworms - Home Library</a></h1>
 
 <!-- TABLE OF CONTENTS -->
 <details>
