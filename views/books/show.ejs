@@ -79,6 +79,13 @@
       </article>
       <% b.reviews.forEach(function(r) { %> <% total += r.rating %>
       <article class="review">
+        <% if (user._id.toString() === r.user[0]._id.toString()) { %>
+        <div id="delete-review">
+          <form>
+            <button type="submit">X</button>
+          </form>
+        </div>
+        <% } %>
         <p><%= r.createdAt.toLocaleDateString() %></p>
         <p><%= r.user[0].username %></p>
         <p class="pfp-container">
