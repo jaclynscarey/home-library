@@ -214,8 +214,7 @@ article.card a {
   color: yellow;
 }
 
-section.card-container article.book-index,
-article.user-show {
+section.card-container article.book-index {
   display: grid;
   grid-template-rows: 2fr 2fr 2fr 1fr 1fr;
   flex-direction: column;
@@ -223,6 +222,7 @@ article.user-show {
 }
 
 section.card-container article.user-show {
+  display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   height: 20rem;
 }
@@ -379,6 +379,12 @@ section.book-info {
   font-size: 1.25rem;
 }
 
+#delete-review {
+  position: relative;
+  left: 300px;
+  bottom: 110px;
+}
+
 section.book-info a {
   color: navy;
 }
@@ -442,4 +448,8 @@ article.reviewBar {
 
 .center-text {
   text-align: center;
+}
+
+section.review-section {
+  margin-bottom: -50px;
 }

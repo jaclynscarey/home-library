@@ -78,7 +78,22 @@
         <p>Rating</p>
       </article>
       <% b.reviews.forEach(function(r) { %> <% total += r.rating %>
-      <article class="review">
+      <section class="review-section">
+        <article class="review">
+          <p><%= r.createdAt.toLocaleDateString() %></p>
+          <p><%= r.user[0].username %></p>
+          <p class="pfp-container">
+            <img
+              src="<%= r.user[0].avatar %>"
+              alt="user profile picture"
+              onerror="this.onerror=null;this.src='/img/stockBook.png';"
+              referrerpolicy="no-referrer"
+              class="pfp"
+            />
+          </p>
+          <p><%= r.content %></p>
+          <p><%= r.rating %></p>
+        </article>
         <% if (user && user._id.toString() === r.user[0]._id.toString()) { %>
         <div id="delete-review">
           <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
@@ -86,20 +101,7 @@
           </form>
         </div>
         <% } %>
-        <p><%= r.createdAt.toLocaleDateString() %></p>
-        <p><%= r.user[0].username %></p>
-        <p class="pfp-container">
-          <img
-            src="<%= r.user[0].avatar %>"
-            alt="user profile picture"
-            onerror="this.onerror=null;this.src='/img/stockBook.png';"
-            referrerpolicy="no-referrer"
-            class="pfp"
-          />
-        </p>
-        <p><%= r.content %></p>
-        <p><%= r.rating %></p>
-      </article>
+      </section>
       <% }); %> Average rating:
       <strong><%= (total / b.reviews.length).toFixed(1) %></strong>
       <% } else { %>
