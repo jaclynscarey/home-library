@@ -1,6 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@400;500;600;700&display=swap');
 
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Andika', sans-serif;
+  height: 100vh;
+  background-color: rgba(27, 118, 223, 0.39);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  max-width: 73rem;
+  height: auto;
+  margin: 1rem auto;
+}
+
 h1 {
   font-family: 'Fredoka', sans-serif;
   font-weight: 500;
@@ -149,22 +165,6 @@ nav > ul > li > a:hover {
   color: white;
   background-color: orange;
   height: 9svw;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Andika', sans-serif;
-  height: 100vh;
-  background-color: rgba(27, 118, 223, 0.39);
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  max-width: 73rem;
-  height: auto;
-  margin: 1rem auto;
 }
 
 .form-section {
@@ -334,10 +334,6 @@ p.stock-book-container {
 .hidden {
   display: none;
 }
-
-/* #form-btn {
-  margin: 0 auto;
-} */
 
 .btn-container {
   display: flex;
