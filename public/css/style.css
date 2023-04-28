@@ -232,8 +232,8 @@ section.card-container article.author-index {
   grid-template-rows: 1fr 1fr 1fr;
   flex-direction: column;
   height: 9.2rem;
-  background-color: lightgreen;
-  color: black;
+  background-color: #4aa564;
+  color: white;
 }
 
 article.author-index a {
@@ -248,8 +248,9 @@ article.card span.hide {
   position: absolute;
   margin-top: 145px;
   margin-left: 80px;
-  color: rgb(228, 83, 83);
-  text-shadow: 1px 1px rgb(65, 65, 65);
+  color: rgb(255, 67, 67);
+  text-shadow: 1px 1px rgb(138, 138, 138);
+  padding-bottom: 4px;
 }
 
 section.card-container article.author-index:hover > span {
@@ -373,7 +374,7 @@ article.review {
 
 section.book-info {
   background-color: yellow;
-  border: 7px solid black;
+  border: 4px solid black;
   width: 500px;
   padding: 30px 20px;
   font-size: 1.25rem;

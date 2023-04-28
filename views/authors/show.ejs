@@ -6,7 +6,6 @@
     <% author.booksWritten.forEach((b, i) => { %>
     <article class="card book">
       <p><a href="/books/<%= b._id %>"><%= b.title %></a></p>
-
       <div>
         <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
         <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
