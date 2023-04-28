@@ -23,22 +23,27 @@ div.title-div {
   margin: 0 20px;
 }
 
-#abc-blocks {
-  width: 20rem;
-  align-self: flex-end;
-  align-items: flex-end;
-  margin-right: 3rem;
-}
-
 #kids {
+  align-self: center;
   max-width: 500px;
   border-radius: 20px;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.43);
 }
 
-section.home-section {
+main.home-main {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+footer {
+  text-align: center;
+}
+
+.home-p {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 nav {
@@ -48,7 +53,7 @@ nav {
   padding: 0.6vmin;
   background-color: yellow;
   /* align-items: center; */
-  box-shadow: 2px black;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
   white-space: nowrap;
 }
 
@@ -124,6 +129,7 @@ body {
   flex-direction: column;
   font-family: 'Andika', sans-serif;
   height: 100vh;
+  background-color: lightblue;
 }
 
 main {
@@ -192,7 +198,7 @@ section.card-container article.author-index {
   grid-template-rows: 1fr 1fr 1fr;
   flex-direction: column;
   height: 9.2rem;
-  background-color: red;
+  background-color: green;
 }
 
 section.card-container article.author-index:hover {
