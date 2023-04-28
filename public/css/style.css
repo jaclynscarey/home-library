@@ -173,6 +173,11 @@ article.card {
   font-weight: bold;
 }
 
+section article.card {
+  height: 7.5rem;
+  align-content: center;
+}
+
 article.card:hover {
   box-shadow: 0 16px 25px 0 rgba(0, 0, 0, 0.6);
 }
@@ -198,7 +203,12 @@ section.card-container article.author-index {
   grid-template-rows: 1fr 1fr 1fr;
   flex-direction: column;
   height: 9.2rem;
-  background-color: green;
+  background-color: lightgreen;
+  color: black;
+}
+
+article.author-index a {
+  color: blue;
 }
 
 section.card-container article.author-index:hover {
