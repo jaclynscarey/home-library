@@ -336,9 +336,10 @@ section.book-info, section.book-review, div.review-form, article.review {
 
 section.book-info {
   background-color: yellow;
+  border: 7px solid black;
   width: 500px;
   padding: 30px 20px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 section.book-info a {
