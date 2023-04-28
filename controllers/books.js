@@ -119,7 +119,6 @@ async function update(req, res) {
     const book = await bookModel.findById(req.params.id).populate('author');
     const savedAuthors = [];
 
-    // Remove book from existing authors' booksWritten
     for (const author of book.author) {
       savedAuthors.push(author);
       const bookIndex = author.booksWritten.findIndex(function (id) {
@@ -129,12 +128,9 @@ async function update(req, res) {
       await author.save();
     }
 
-    // Reset book authors
     book.author = [];
     await book.save();
 
-    // Add book to (new) existing authors' booksWritten
-    // Add author to book
     if (existingAuthors) {
       existingAuthors.forEach(async function (authorId) {
         book.author.push(authorId);
@@ -147,8 +143,6 @@ async function update(req, res) {
       await book.save();
     }
 
-    // Create new author and add book to author's booksWritten
-    // Add author to book
     for (let authorDetail of authorObjects) {
       const author = await authorModel.create(authorDetail);
       author.booksWritten.push(book._id);
@@ -158,7 +152,6 @@ async function update(req, res) {
       await book.save();
     }
 
-    // Delete authors with no books
     for (const author of savedAuthors) {
       if (author.booksWritten.length === 0) {
         await authorModel.findByIdAndDelete(author._id);
