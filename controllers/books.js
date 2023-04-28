@@ -57,6 +57,7 @@ async function show(req, res) {
       },
     ]);
 
+    console.log(foundBook.reviews[0]);
     res.render('books/show', {
       b: foundBook,
       title: 'Book Details',
