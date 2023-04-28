@@ -10,10 +10,7 @@
   </p>
   <section class="card-container">
     <% authors.forEach(a => { %>
-    <article class="card author-index">
-      <% if (a.booksWritten.length > 1) { %>
-      <span class="hide">Hover to see more...</span>
-      <% } %>
+    <article class="card author-index">      
       <h3>
         <a href="/authors/<%= a._id %>/"
           ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a

@@ -379,6 +379,12 @@ section.book-info {
   font-size: 1.25rem;
 }
 
+#delete-review {
+  position: relative;
+  left: 300px;
+  bottom: 110px;
+}
+
 section.book-info a {
   color: navy;
 }
@@ -442,4 +448,8 @@ article.reviewBar {
 
 .center-text {
   text-align: center;
+}
+
+section.review-section {
+  margin-bottom: -50px;
 }
