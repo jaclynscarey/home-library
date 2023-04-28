@@ -70,12 +70,13 @@
     <div>
       <% if (b.reviews.length) { %> <% b.reviews.forEach(function(r) { %>
       <article>
-        <p><%= r.user.username %></p>
+        <p><%= r.user[0].username %></p>
         <p class="pfp-container">
           <img
-            src="<%= r.user.avatar %>"
+            src="<%= r.user[0].avatar %>"
             alt="user profile picture"
             onerror="this.onerror=null;this.src='/img/stockBook.png';"
+            referrerpolicy="no-referrer"
             class="pfp"
           />
         </p>
