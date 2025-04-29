@@ -1,5 +1,17 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
 
+<!-- Modal Dialog -->
+<div id="deleteModal" class="modal">
+  <div class="modal-content">
+    <h3>Confirm Delete</h3>
+    <p id="modalMessage"></p>
+    <div class="modal-buttons">
+      <button id="modalCancel" class="modal-btn cancel">Cancel</button>
+      <button id="modalConfirm" class="modal-btn confirm">Delete</button>
+    </div>
+  </div>
+</div>
+
 <main>
   <h2>Library</h2>
   <p class="center-text">Browse the entire collection of books!</p>
@@ -81,7 +93,7 @@
         </form>
         <% } else { %>
         <form action="/users/<%= b._id %>?_method=PUT" method="POST">
-          <button type="submit" onclick="history.go(0)">Add to My Books</button>
+          <button type="submit">Add to My Books</button>
         </form>
         <% }} %>
       </div>
@@ -89,9 +101,7 @@
       <div>
         <% if (user && user.isAdmin) { %>
         <form action="/books/<%=b._id %>?_method=DELETE" method="POST">
-          <button type="submit" onclick="history.go(0)">
-            Delete from Library
-          </button>
+          <button type="submit">Delete from Library</button>
         </form>
         <% } %>
       </div>

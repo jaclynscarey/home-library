@@ -1,27 +1,37 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
 
 <main>
-  <h2>Find Your Favorite Author</h2>
-  <p class="center-text">
-    Hover over each author to see all the books they've written!
-  </p>
-  <p class="center-text">
-    Click on an author's name or book title to see more details.
-  </p>
+  <section class="page-header">
+    <h2>Find Your Favorite Author</h2>
+    <p class="center-text">
+      Hover over each author to see all the books they've written!
+    </p>
+    <p class="center-text">
+      Click on an author's name or book title to see more details.
+    </p>
+  </section>
+
   <section class="card-container">
     <% authors.forEach(a => { %>
-    <article class="card author-index">      
-      <h3>
-        <a href="/authors/<%= a._id %>/"
-          ><%= a.firstName %> <%= a.middleName %> <%= a.lastName %></a
-        >
-      </h3>
-      <p>Book(s) Written:</p>
-      <% a.booksWritten.forEach(function(b, i) { %>
-      <p><a href="/books/<%= b._id %>"><%= b.title %></a></p>
-      <% }) %>
+    <article class="card author-index">
+      <div class="author-content">
+        <h3>
+          <a href="/authors/<%= a._id %>/">
+            <%= a.firstName %> <%= a.middleName %> <%= a.lastName %>
+          </a>
+        </h3>
+        <div class="books-list">
+          <p class="books-label">Book(s) Written:</p>
+          <% a.booksWritten.forEach(function(b, i) { %>
+            <p class="book-title">
+              <a href="/books/<%= b._id %>"><%= b.title %></a>
+            </p>
+          <% }) %>
+        </div>
+      </div>
     </article>
     <% }) %>
   </section>
 </main>
+
 <%- include('../partials/footer') %>

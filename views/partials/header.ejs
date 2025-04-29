@@ -1,11 +1,16 @@
 <header>
   <nav>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <ul>
       <li><a id="home" href="/">Home</a></li>
       <li><a id="library" href="/books">Library</a></li>
       <li><a id="authors" href="/authors">Authors</a></li>
       <% if (user) { %>
-      <li><a id="my-books" href="/users/<%= user._id %>">My Books</a></li>
+      <li><a id="my-books" href="/users/<%= user._id %>"><%= user.username.split(' ')[0] %>'s Books</a></li>
       <li><a id="log-out" href="/logout">Log Out</a></li>
       <% } else { %>
       <li><a id="log-in" href="/auth/google">Log In</a></li>

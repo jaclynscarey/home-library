@@ -1,5 +1,17 @@
 <%- include('../partials/head') %> <%- include('../partials/header') %>
 
+<!-- Modal Dialog -->
+<div id="deleteModal" class="modal">
+  <div class="modal-content">
+    <h3>Confirm Delete</h3>
+    <p id="modalMessage"></p>
+    <div class="modal-buttons">
+      <button id="modalCancel" class="modal-btn cancel">Cancel</button>
+      <button id="modalConfirm" class="modal-btn confirm">Delete</button>
+    </div>
+  </div>
+</div>
+
 <main class="book-show">
   <h2><em><%= b.title %></em></h2>
   <section class="book-info">
@@ -26,13 +38,11 @@
     <% } %> <% if (user) { %> <% if (user.booksRead.includes(b._id)) { %>
     <div>
       <form action="/users/<%=b._id %>?_method=DELETE" method="POST">
-        <button type="submit" onclick="history.go(0)">
-          Delete from My Books
-        </button>
+        <button type="submit">Delete from My Books</button>
       </form>
       <% } else { %>
       <form action="/users/<%= b._id %>?_method=PUT" method="POST">
-        <button type="submit" onclick="history.go(0)">Add to My Books</button>
+        <button type="submit">Add to My Books</button>
       </form>
     </div>
     <% }} %> <% if (user && user.isAdmin) { %>
